@@ -5,6 +5,8 @@ import { FaSquareGithub } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import Navbar from './Navbar'
 import { TypeAnimation } from 'react-type-animation';
+import About from './About';
+import Service from './Service';
 
 const HomePage = () => {
     return (
@@ -41,7 +43,8 @@ const HomePage = () => {
             <div className=' absolute left-[-150px]   w-52 h-52 bg-[#b5b6b87c] hover:bg-white transition-colors duration-200 rotate-[45deg] overflow-hidden'></div>
             <div className='absolute right-[-150px]  w-52 h-52 bg-[#b5b6b87c] hover:bg-white transition-colors duration-200 rotate-[45deg] overflow-hidden'></div>
             </div>
-
+            <About/>
+            <Service/>
         </div>
     )
 }
