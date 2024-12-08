@@ -7,6 +7,8 @@ import Navbar from './Navbar'
 import { TypeAnimation } from 'react-type-animation';
 import About from './About';
 import Service from './Service';
+import Freelancer from './Freelancer';
+import Eductionflow from './Eductionflow';
 
 const HomePage = () => {
     return (
@@ -45,6 +47,8 @@ const HomePage = () => {
             </div>
             <About/>
             <Service/>
+            <Freelancer/>
+            <Eductionflow/>
         </div>
     )
 }

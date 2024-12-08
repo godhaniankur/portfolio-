@@ -18,7 +18,7 @@ const Service = () => {
                             workson.map((datas)=>(
                                 
                                 <div className='flex flex-col justify-center items-center p-5 bg-white shadow-sm border border-gray-50 text-center gap-y-5 hover:border-b-2 hover:border-b-blue-500 hover:relative -top-2 transition-all duration-500 ease-in-out group'>
-                                    <span><datas.icons size={50} className=' text-blue-500'/></span>
+                                    <span><datas.icons size={50} color={datas.color} /></span>
                                     <h1 className=' text-2xl text-gray-900 group-hover:text-blue-500'>{datas.title}</h1>
                                     <p className=' text-gray-500'>{datas.description}</p>
                                     

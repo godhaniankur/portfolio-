@@ -5,6 +5,8 @@ import { FaLocationPin } from "react-icons/fa6";
 import { FaCalendar } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Resume from '../srcImage/Resume.pdf'
+
 
 const About = () => {
     return (
@@ -28,7 +30,7 @@ const About = () => {
                         <div className=' grid grid-cols-2 w-full p-2 gap-y-5'>
                              <div className=' flex justify-between items-center'>
                                 <p className='flex items-center gap-x-2 w-full'><FaLocationPin/>Location</p>
-                                <span className='w-full text-gray-500'>:Amreli</span>
+                                <span className='w-full text-gray-500'>:Gandhinagar</span>
                              </div>
                              <div  className='flex justify-between items-center'>
                                 <p className='flex items-center gap-x-2 w-full'><FaCalendar/>Age</p>
@@ -44,7 +46,7 @@ const About = () => {
                              </div>
                         </div>
                         <hr />
-                        <Btnbutton text="Download Resume"/>
+                        <a href={Resume} download="Resume"><Btnbutton text="Download Resume"/></a>
                     </div>
                 </div>
             </div>
