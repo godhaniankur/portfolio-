@@ -6,7 +6,8 @@ module.exports = {
       backgroundImage:{
         'mainImage':"url('../image/im1.jpeg')",
         'Freelancer':"url('../image/Freelancer1.jpg')",
-        "success":"url('../image/success.jpeg')"
+        "success":"url('../image/success.jpeg')",
+        "relation":"url('../image/relation.jpeg')",
       }
     },
   },

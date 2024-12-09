@@ -9,6 +9,8 @@ import About from './About';
 import Service from './Service';
 import Freelancer from './Freelancer';
 import Eductionflow from './Eductionflow';
+import Success from './Success';
+import Project from './Project';
 
 const HomePage = () => {
     return (
@@ -49,6 +51,8 @@ const HomePage = () => {
             <Service/>
             <Freelancer/>
             <Eductionflow/>
+            <Success/>
+            <Project/>
         </div>
     )
 }
