@@ -5,7 +5,7 @@ import HomePage from './componets/HomePage';
 
 function App() {
   return (
-    <div>
+    <div className='bg-gray-50'>
         <Routes>
               <Route path='/' element={<HomePage/>} />
         </Routes>

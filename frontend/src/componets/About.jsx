@@ -10,9 +10,9 @@ import Resume from '../srcImage/Resume.pdf'
 
 const About = () => {
     return (
-        <div className='mt-40'>
+        <div className='mt-40' id='about'>
             <div className='w-9/12 flex mx-auto'>
-                <div className='flex justify-between items-center text-black w-full gap-x-10'>
+                <div className='flex max-md:flex-col justify-between md:justify-center items-center text-black w-full gap-x-10'>
                     <div className='p-2 w-fit'>
                         <img src={about} alt="" className=' bg-cover h-[30rem] w-[40rem]' />
                     </div>  
@@ -27,7 +27,7 @@ const About = () => {
                         <p className=' text-md text-gray-500 '>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quisquam quas. Blanditiis iusto error quaerat, aut dicta maxime, eius ullam obcaecati voluptatem expedita minus qui aperiam. Facere suscipit consequatur velit provident beatae iusto et ullam possimus eos voluptates libero illo aliquid ut odit ratione neque reprehenderit vel, quidem repellendus unde.
                         </p>
-                        <div className=' grid grid-cols-2 w-full p-2 gap-y-5'>
+                        <div className=' grid grid-cols-2 max-md:grid-cols-1 w-full p-2 gap-y-5'>
                              <div className=' flex justify-between items-center'>
                                 <p className='flex items-center gap-x-2 w-full'><FaLocationPin/>Location</p>
                                 <span className='w-full text-gray-500'>:Gandhinagar</span>

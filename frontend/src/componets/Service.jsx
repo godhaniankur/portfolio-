@@ -3,17 +3,17 @@ import {workson} from '../Data/serivedata'
 
 const Service = () => {
   return (
-    <div className='w-full mt-40 bg-gray-50'>
+    <div className='w-full mt-40 bg-gray-50' id='skills'>
         <div className=''>
             <div className='w-9/12 flex flex-col justify-center items-center mx-auto text-black p-5'>
                 <div className='flex flex-col items-center justify-center gap-y-2'>
                     <h3 className='py-1 px-2 text-[10px] font-bold bg-blue-500 rounded-md w-fit text-white'>WHAT WE DO</h3>
-                    <h1 className=' text-4xl '>MY SKILS</h1>
-                    <p className=' text-sm text-center text-gray-500 w-[60%]'>As a MERN stack developer, I specialize in building dynamic web applications using MongoDB, Express.js, React.js, and Node.js. I excel in creating scalable, responsive, and user-friendly interfaces...</p>
+                    <h1 className=' text-4xl '>MY SKILLS</h1>
+                    <p className=' text-sm text-center text-gray-500 w-[60%] max-md:w-[99%]'>As a MERN stack developer, I specialize in building dynamic web applications using MongoDB, Express.js, React.js, and Node.js. I excel in creating scalable, responsive, and user-friendly interfaces...</p>
                 <span className='border border-blue-800 w-12'></span>
                 </div>
                 <div className='mt-20'>
-                    <div className='grid grid-cols-3 gap-8'>
+                    <div className='grid grid-cols-3 max-md:grid-cols-1 gap-8'>
                         {
                             workson.map((datas)=>(
                                 

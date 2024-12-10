@@ -3,7 +3,7 @@ import { Eductions, experience } from '../Data/serivedata';
 
 const EducationFlow = () => {
     return (
-        <div className="w-full mt-10">
+        <div className="w-full mt-10 bg-gray-50">
             <div className="w-9/12 mx-auto  p-3">
                 <div className=' mb-10'>
                     <h1 className=' text-2xl text-gray-800 underline underline-offset-8'>Eduction Details</h1>
@@ -13,16 +13,16 @@ const EducationFlow = () => {
                     <div className="flex flex-col gap-y-10 w-full">
                         {Eductions.map((item, index) => (
                             <div key={index} className="flex flex-col gap-y-3 w-full">
-                                <div className="flex items-center gap-x-3">
+                                <div className="flex max-md:flex-col max-md:justify-center items-center gap-x-3">
                                     <span className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-800">
                                         <item.icons size={35} color="white" />
                                     </span>
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col max-md:justify-center max-md:items-center max-md:text-center">
                                         <p className="font-bold text-blue-800">{item.year}</p>
-                                        <span className="text-gray-800 font-semibold">{item.title}</span>
+                                        <span className="text-gray-800 font-semibold max-md:text-sm">{item.title}</span>
                                     </div>
                                 </div>
-                                <ul className="mx-[80px] text-gray-700 list-disc">
+                                <ul className="mx-[80px] max-md:w-full  text-gray-700 list-disc">
                                     <li>{item.dec1}</li>
                                 </ul>
                             </div>
@@ -39,16 +39,16 @@ const EducationFlow = () => {
                     <div className="flex flex-col gap-y-10 w-full">
                         {experience.map((item, index) => (
                             <div key={index} className="flex flex-col gap-y-3 w-full">
-                                <div className="flex items-center gap-x-3">
+                                <div className="flex max-md:flex-col max-md:justify-center items-center gap-x-3">
                                     <span className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-800">
                                         <item.icons size={35} color="white" />
                                     </span>
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col max-md:justify-center max-md:items-center max-md:text-center">
                                         <p className="font-bold text-blue-800">{item.year}</p>
-                                        <span className="text-gray-800 font-semibold">{item.title}</span>
+                                        <span className="text-gray-800 max-md:text-sm w-full font-semibold">{item.title}</span>
                                     </div>
                                 </div>
-                                <ul className="mx-[80px] text-gray-700 list-disc">
+                                <ul className="mx-[80px] max-md:w-full max-md:-mx-2 text-gray-700 list-disc">
                                     <li>{item.dec1}</li>
                                 </ul>
                             </div>

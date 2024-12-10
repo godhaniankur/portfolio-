@@ -7,8 +7,8 @@ import { RiCustomerService2Line } from "react-icons/ri";
 const Success = () => {
   return (
     <div className='w-full mt-20 mb-20'>    
-        <div className=' bg-fixed bg-relation bg-cover h-[18rem] flex items-center justify-center'>
-            <div className='w-9/12 flex justify-around items-center mx-auto backdrop-opacity-20	backdrop-invert p-5 rounded-md'>
+        <div className=' bg-fixed bg-relation bg-cover max-md:h-[150vh] h-[18rem] flex items-center justify-center'>
+            <div className='w-9/12 flex max-md:flex-col justify-around items-center mx-auto backdrop-opacity-20	backdrop-invert p-5 rounded-md max-md:gap-y-3'>
                 <div className='flex flex-col justify-center items-center gap-y-1.5'>
                     <span><LiaStreetViewSolid size={50}/></span>
                     <p className='text-4xl font-bold'>0</p>

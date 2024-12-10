@@ -7,6 +7,9 @@ import { FaPython } from "react-icons/fa";
 import { FaBook } from "react-icons/fa6";
 import { IoSchool } from "react-icons/io5";
 import { CgOrganisation } from "react-icons/cg";
+import hotel from "../srcImage/hotels.jpg"
+import bike from "../srcImage/bikes.jpeg"
+import desh from "../srcImage/deshbords.jpg"
 
 export const workson = [
     {
@@ -74,5 +77,26 @@ export const experience = [
         year:"Jun 2024 - Jul 2024",
         title:"React JS Internship , Jainwell Services Pvt Ltd - Ahmedabad",
         dec1:" The Bus Booking and Service React Internship project involves developing a web application where users can book bus tickets online. The app allows users to search for available buses based on their travel dates, destinations, and preferred timings. Users can view bus details, select seats, and make secure payments.",
+    }
+]
+
+export const project =[
+    {
+        image:hotel,
+        title:"Hotel Managemant System",
+        date:"sep 1 2024",
+        dcescription:"Hotel Managemant System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs."
+    },
+    {
+        image:bike,
+        title:"Bike Renat System",
+        date:"Dec 30 2023",
+        dcescription:"Bike Renat System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs."
+    },
+    {
+        image:desh,
+        title:"E-commerce Website",
+        date:" Jul 1 2024",
+        dcescription:"Bike Renat System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs."
     }
 ]

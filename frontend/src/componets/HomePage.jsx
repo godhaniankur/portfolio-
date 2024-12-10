@@ -11,28 +11,29 @@ import Freelancer from './Freelancer';
 import Eductionflow from './Eductionflow';
 import Success from './Success';
 import Project from './Project';
+import Contact from './Contact';
 
 const HomePage = () => {
     return (
-        <div className='h-screen bg-mainImage bg-cover bg-left text-white'>
+        <div className='h-screen bg-mainImage bg-cover bg-left text-white' id='home'>
             <Navbar />
-            <div className='relative w-full h-screen flex items-center justify-center overflow-hidden'>
+            <div className='relative w-full max-md:py-5 max-md:top-20 h-screen flex items-center justify-center overflow-hidden'>
                 <div className='w-9/12 flex flex-col gap-y-5 -mt-20'>
                     <div className='py-2 px-5 border-2 text-lg font-bold rounded-lg bg-transparent border-blue-400 text-white w-fit'>
                         HELLO !
                     </div>
-                    <div className=' text-5xl font-bold flex gap-x-4 '>
-                        I AM  
+                    <div className='flex max-md:flex-col  text-5xl font-bold gap-x-4 '>
+                        <span>I AM </span> 
                         <TypeAnimation 
                             sequence={[" ANKUR GODHANI",1000,"MERN STACK DEVELOPER",1000]}
                             wrapper='span'
                             speed={20}
-                            style={{fontSize:"3rem",display:"flex",fontWeight:"normal"}}
+                            // style={{fontSize:"3rem",display:"flex",fontWeight:"normal"}}
                             repeat={Infinity}
-                            
+                            className='max-md:text-3xl'
                         />
                     </div>
-                    <div className='w-[68%]'>
+                    <div className='md:w-[68%]'>
                         I'm a mern stack Developer with extensive experience for over 1+ years.I am a MERN Stack Developer with expertise in building dynamic and responsive web applications using MongoDB, Express.js, React.js, and Node.js. I specialize in developing intuitive user interfaces, creating robust backend APIs, and managing databases efficiently. My skills in JavaScript enable seamless integration between frontend and backend, ensuring optimal performance.
                     </div>
                     <div>
@@ -53,6 +54,7 @@ const HomePage = () => {
             <Eductionflow/>
             <Success/>
             <Project/>
+            <Contact/>
         </div>
     )
 }
