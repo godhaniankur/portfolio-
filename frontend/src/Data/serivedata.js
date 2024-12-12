@@ -10,6 +10,10 @@ import { CgOrganisation } from "react-icons/cg";
 import hotel from "../srcImage/hotels.jpg"
 import bike from "../srcImage/bikes.jpeg"
 import desh from "../srcImage/deshbords.jpg"
+import { SiRemovedotbg } from "react-icons/si";
+import { FaMobile } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
+import { GiOpenBook } from "react-icons/gi";
 
 export const workson = [
     {
@@ -85,18 +89,42 @@ export const project =[
         image:hotel,
         title:"Hotel Managemant System",
         date:"sep 1 2024",
-        dcescription:"Hotel Managemant System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs."
+        dcescription:"Hotel Managemant System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs.",
+        Link:"/Hotel"
     },
     {
         image:bike,
         title:"Bike Renat System",
         date:"Dec 30 2023",
-        dcescription:"Bike Renat System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs."
+        dcescription:"Bike Renat System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs.",
+        Link:"/Bike"
     },
     {
         image:desh,
         title:"E-commerce Website",
         date:" Jul 1 2024",
-        dcescription:"Bike Renat System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs."
+        dcescription:"Bike Renat System is Fully Functional ed-tech platform that enables users to create consume, and rate Business content. Then platform is built using the MERN stack,which includes ReactJS, NodeJS , MongoDB and ExpressJs.",
+        Link:"/ecom"
     }
 ]
+
+export const BikeprojectDetail = [
+    {
+        icons:SiRemovedotbg,
+        title:"User-Friendly Interface",
+        decscription:"Our website is designed with a user-friendly interface, making it easy to navigate and find the information you need."
+    },{
+        icons:FaMobile,
+        title:"Mobile Optimization",
+        decscription:"Our website is optimized for mobile devices, ensuring a seamless booking experience across all platforms."
+    },{
+        icons:FaSearch,
+        title:"Comprehensive Search Filters",
+        decscription:"Use advanced search filters to narrow down your hotel search based on your specific needs and preferences."
+    },{
+        icons:GiOpenBook,
+        title:"Detailed Hotel Information",
+        decscription:"Each hotel listing provides detailed information, including photos, amenities, reviews, and guest ratings."
+    }
+]
+

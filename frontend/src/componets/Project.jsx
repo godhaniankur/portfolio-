@@ -1,6 +1,7 @@
 import React from 'react'
 import { project } from '../Data/serivedata'
 import Btnbutton from "../samepage/Btnbutton"
+import { Link } from 'react-router-dom'
 
 const Project = () => {
   return (
@@ -24,9 +25,9 @@ const Project = () => {
                                 <p className='text-blue-500 text-xs px-1'>{pro.date}</p>
                                 <h1 className=' text-2xl text-gray-800'>{pro.title}</h1>
                                 <p className='text-gray-500'>{pro.dcescription}</p>
-                                <div className='mt-5 mb-5'>
+                                <Link to={pro.Link} className='mt-5 mb-5'>
                                     <Btnbutton text="Read More"/>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                       ))
