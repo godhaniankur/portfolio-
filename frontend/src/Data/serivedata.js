@@ -26,7 +26,8 @@ export const workson = [
         icons:FaNode,
         title : "Node Js",
         description:"In Node JS with extensive experience for over 1+ years.It is widely used for creating scalable, real-time, and high-performance web applications.",
-        color:"green"
+        color:"green",
+
     }, 
     {
         icons:SiMongodb,
