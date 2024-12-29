@@ -13,7 +13,7 @@ const EducationFlow = () => {
                     {/* Education Section */}
                     <div className="flex flex-col gap-y-10 w-full">
                         {Eductions.map((item, index) => (
-                            <motion.div key={index} initial={{x:100,opacity:0}} whileInView={{x:0,opacity:1}} transition={{duration:1,delay:[index/10],y:{type:"inertia",duration:0.8}}} className="flex flex-col gap-y-3 w-full">
+                            <motion.div key={index} initial={{x:100,opacity:0}} whileInView={{x:0,opacity:1}} transition={{duration:1,y:{type:"inertia",duration:0.8},staggerChildren:0.1,staggerDirection:-1}} className="flex flex-col gap-y-3 w-full">
                                 <div className="flex max-md:flex-col max-md:justify-center items-center gap-x-3">
                                     <span className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-800">
                                         <item.icons size={35} color="white" />
@@ -39,7 +39,7 @@ const EducationFlow = () => {
                     {/* Education Section */}
                     <div className="flex flex-col gap-y-10 w-full">
                         {experience.map((item, index) => (
-                            <motion.div initial={{x:100,opacity:0}} whileInView={{x:0,opacity:1}} transition={{duration:1,delay:[index/10],y:{type:"inertia",duration:0.8,bounce:0.2}}} key={index} className="flex flex-col gap-y-3 w-full">
+                            <motion.div initial={{x:100,opacity:0}} whileInView={{x:0,opacity:1}} transition={{duration:1,delay:[index/10],y:{type:"inertia",duration:0.8,bounce:0.2},staggerChildren:1}}  key={index} className="flex flex-col gap-y-3 w-full">
                                 <div className="flex max-md:flex-col max-md:justify-center items-center gap-x-3">
                                     <span className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-800">
                                         <item.icons size={35} color="white" />
