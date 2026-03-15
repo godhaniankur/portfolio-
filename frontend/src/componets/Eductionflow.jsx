@@ -19,8 +19,8 @@ const EducationFlow = () => {
                                         <item.icons size={35} color="white" />
                                     </span>
                                     <div className="flex flex-col max-md:justify-center max-md:items-center max-md:text-center">
-                                        <p className="font-bold text-blue-800">{item.year}</p>
                                         <span className="text-gray-800 font-semibold max-md:text-sm">{item.title}</span>
+                                        <p className="font-bold text-blue-800">{item.year}</p>
                                     </div>
                                 </div>
                                 <ul className="mx-[80px] max-md:w-full  text-gray-700 list-disc">
@@ -45,8 +45,8 @@ const EducationFlow = () => {
                                         <item.icons size={35} color="white" />
                                     </span>
                                     <div className="flex flex-col max-md:justify-center max-md:items-center max-md:text-center">
-                                        <p className="font-bold text-blue-800">{item.year}</p>
                                         <span className="text-gray-800 max-md:text-sm w-full font-semibold">{item.title}</span>
+                                        <p className="font-bold text-blue-800">{item.year}</p>
                                     </div>
                                 </div>
                                 <ul className="mx-[80px] max-md:w-full max-md:-mx-2 text-gray-700 list-disc">

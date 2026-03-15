@@ -79,6 +79,12 @@ export const Eductions = [
 export const experience = [
     {
         icons:CgOrganisation,
+        year:"Jan 2025",
+        title:"Mern stack Developer, Weblogiance - Surat ",
+        dec1:"The Bus Booking and Service React Internship project involves developing a web application where users can book bus tickets online. The app allows users to search for available buses based on their travel dates, destinations, and preferred timings. Users can view bus details, select seats, and make secure payments.",
+    },
+    {
+        icons:CgOrganisation,
         year:"Jun 2024 - Jul 2024",
         title:"React JS Internship , Jainwell Services Pvt Ltd - Ahmedabad",
         dec1:" The Bus Booking and Service React Internship project involves developing a web application where users can book bus tickets online. The app allows users to search for available buses based on their travel dates, destinations, and preferred timings. Users can view bus details, select seats, and make secure payments.",

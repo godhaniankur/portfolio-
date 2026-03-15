@@ -8,6 +8,8 @@ import {Link} from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import Detailspro from '../samepage/Detailspro';
 import UseLanguage from '../samepage/UseLanguage';
+import Footer from './Footer';
+import OverviewOfproject from '../samepage/OverviewOfproject';
 
 const Projectdetail = () => {
     const location = useLocation();
@@ -90,7 +92,10 @@ const Projectdetail = () => {
                       <Detailspro url={location.pathname}/>
                 </div>
             </div>
+            {/* overview of Project  */}
+            <OverviewOfproject/>
         </div>
+        <Footer/>
     </div>
   )
 }

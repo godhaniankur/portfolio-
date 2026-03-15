@@ -12,11 +12,11 @@ import Eductionflow from './Eductionflow';
 import Success from './Success';
 import Project from './Project';
 import Contact from './Contact';
+import Footer from './Footer';
 
 const HomePage = () => {
     return (
         <div className='h-screen bg-mainImage bg-cover bg-left text-white' id='home'>
-            <Navbar />
             <div className='relative w-full max-md:py-5 max-md:top-20 h-screen flex items-center justify-center overflow-hidden'>
                 <div className='w-9/12 flex flex-col gap-y-5 -mt-20'>
                     <div className='py-2 px-5 border-2 text-lg font-bold rounded-lg bg-transparent border-blue-400 text-white w-fit'>
@@ -55,6 +55,7 @@ const HomePage = () => {
             <Success/>
             <Project/>
             <Contact/>
+            <Footer/>
         </div>
     )
 }
