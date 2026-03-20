@@ -38,8 +38,9 @@ const Backdrop = () => {
       </div>
     
     </div>
+    HELLO THIS NEW UPDATE ADS :
     <div className=' border'>
-
+      
       <AdBanner />
     </div>
     </>
