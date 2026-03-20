@@ -1,79 +1,163 @@
-import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter, FaGithub, FaYoutube } from "react-icons/fa";
-
-const Footer = () => {
+export default function Footer() {
+  const footerLinks = [
+    { label: "Privacy", href: "/privacy" },
+    { label: "About", href: "/About" },
+    { label: "Support", href: "/contact" },
+    { label: "GitHub", href: "#" }
+  ];
   return (
-    <footer className="bg-gray-900  text-gray-400 py-10">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {/* Logo and Mission Statement */}
-          <div>
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 bg-indigo-500 rounded-full"></div>
-              <span className="text-white text-lg font-bold">Your Company</span>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+        .footer-root {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          font-family: 'JetBrains Mono', monospace;
+          background: rgba(8, 11, 16, 0.97);
+          border-top: 1px solid #1a2030;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+        }
+
+        .footer-inner {
+          display: flex;
+          align-items: center;
+          padding: 0 40px;
+          height: 44px;
+          gap: 20px;
+        }
+
+        .footer-left {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          flex: 1;
+        }
+
+        .footer-logo {
+          font-size: 13px;
+          font-weight: 700;
+          color: #00e676;
+          letter-spacing: 0.05em;
+        }
+
+        .footer-sep {
+          color: #1e2a3a;
+          font-size: 14px;
+        }
+
+        .footer-tagline {
+          font-size: 10px;
+          color: #2a3a4a;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+
+        .footer-center {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .footer-metric {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 10px;
+          color: #4a5a6a;
+          background: #0d1117;
+          border: 1px solid #1e2a3a;
+          border-radius: 4px;
+          padding: 2px 10px;
+          letter-spacing: 0.06em;
+        }
+
+        .metric-dot {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: #00e676;
+        }
+
+        .footer-right {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .footer-link {
+          font-size: 10px;
+          color: #2a3a4a;
+          cursor: pointer;
+          letter-spacing: 0.08em;
+          text-decoration: none;
+          transition: color 0.2s;
+          text-transform: uppercase;
+        }
+
+        .footer-link:hover {
+          color: #00e676;
+        }
+
+        .footer-version {
+          font-size: 10px;
+          color: #1e2a3a;
+          letter-spacing: 0.08em;
+        }
+
+        @media (max-width: 768px) {
+          .footer-inner { padding: 0 16px; gap: 10px; }
+          .footer-center, .footer-right { display: none; }
+          .footer-tagline { display: none; }
+        }
+      `}</style>
+
+      <footer className="footer-root">
+        <div className="footer-inner">
+          {/* Left */}
+          <div className="footer-left">
+            <span className="footer-logo">⬡ Test Mode</span>
+            <span className="footer-sep">·</span>
+            <span className="footer-tagline">Mock data · Not for production</span>
+          </div>
+
+          {/* Center Metrics */}
+          <div className="footer-center">
+            <div className="footer-metric">
+              <span className="metric-dot" />
+              API UP
             </div>
-            <p className="mt-4 text-sm">
-              Making the world a better place through constructing elegant hierarchies.
-            </p>
-            <div className="flex space-x-4 mt-4">
-              <a href="#" className="hover:text-white"><FaFacebook size={20} /></a>
-              <a href="#" className="hover:text-white"><FaInstagram size={20} /></a>
-              <a href="#" className="hover:text-white"><FaTwitter size={20} /></a>
-              <a href="#" className="hover:text-white"><FaGithub size={20} /></a>
-              <a href="#" className="hover:text-white"><FaYoutube size={20} /></a>
+            <div className="footer-metric">
+              <span className="metric-dot" />
+              38ms AVG
+            </div>
+            <div className="footer-metric">
+              <span className="metric-dot" />
+              99.99% UPTIME
             </div>
           </div>
 
-          {/* Solutions */}
-          <div>
-            <h3 className="text-white font-medium mb-4">Project</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white">Hotel Management System</a></li>
-              <li><a href="#" className="hover:text-white">Bike Rental System</a></li>
-              <li><a href="#" className="hover:text-white">Basic E-Commerce Website</a></li>
-              <li><a href="#" className="hover:text-white">Commerce</a></li>
-              <li><a href="#" className="hover:text-white">Insights</a></li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h3 className="text-white font-medium mb-4">Support</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white">Submit Ticket</a></li>
-              <li><a href="#" className="hover:text-white">Documentation</a></li>
-              <li><a href="#" className="hover:text-white">Guides</a></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-white font-medium mb-4">Company</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white">About</a></li>
-              <li><a href="#" className="hover:text-white">Blog</a></li>
-              <li><a href="#" className="hover:text-white">Jobs</a></li>
-              <li><a href="#" className="hover:text-white">Press</a></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-white font-medium mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white">License</a></li>
-            </ul>
+          {/* Right Links */}
+          <div className="footer-right">
+           
+            {footerLinks.map((link) => (
+              <a
+                key={link.label}
+                className="footer-link"
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            ))}
+            <span className="footer-sep">·</span>
+            <span className="footer-version">© 2026 devapi</span>
           </div>
         </div>
-
-        <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm">
-          <p>&copy; 2024 Your Company, Inc. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
-};
-
-export default Footer;
+}
