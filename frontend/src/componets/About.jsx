@@ -14,7 +14,7 @@ const About = () => {
             <div className='w-9/12 flex mx-auto'>
                 <div className='flex max-md:flex-col justify-between md:justify-center items-center text-black w-full gap-x-10'>
                     <motion.div initial={{x:-100,opacity:0}} whileInView={{x:0,opacity:1}} transition={{delay:0.2,x:{type:"spring",stiffness:60},opacity:{duration:1},ease:"easeIn",duration:2}}  className='p-2 w-fit'>
-                        <img src={about} alt="" className=' bg-cover h-[30rem] w-[40rem]' />
+                        <img src={about} alt="" className=' bg-cover h-[30rem] w-[40rem] ' />
                     </motion.div>  
                     <div className='w-full flex flex-col gap-y-5 justify-center text-gray-900'>
                         <div className='flex gap-x-2'>
