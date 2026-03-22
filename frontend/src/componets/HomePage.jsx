@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdBanner from "../ads/AdBanner";
+import { useNavigate } from "react-router-dom";
 
 
 const endpoints = [
@@ -66,6 +67,8 @@ const methodColors = {
 
 const categories = ["All", "Users", "Products", "Auth"];
 
+
+
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedEndpoint, setSelectedEndpoint] = useState(endpoints[0]);
@@ -91,6 +94,10 @@ export default function HomePage() {
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
   };
+
+  
+
+
 
   return (
     <>

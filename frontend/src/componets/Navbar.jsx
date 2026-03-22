@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -256,7 +257,7 @@ export default function Header() {
           {/* Logo */}
           <a className="header-logo" href="#">
             <span className="logo-icon">⬡</span>
-            <span className="logo-text"><a href="/">Test Mode</a></span>
+            <span className="logo-text"><a href="/home">Test Mode</a></span>
             <span className="logo-badge">v2.4.1</span>
           </a>
 
@@ -274,22 +275,22 @@ export default function Header() {
           <nav className="header-nav">
             {[
               { label: "Playground", active: true },
-              { label: "Docs" },
-              { label: "Changelog" },
-              { label: "Status" },
-              { label: "SDKs" },
-            ].map(({ label, active }) => (
-              <a key={label} className={`nav-link${active ? " active" : ""}`} href="#">
+              { label: "Devloper Test" ,link:"/"},
+              // { label: "Changelog" },
+              // { label: "Status" },
+              // { label: "SDKs" },
+            ].map(({ label, active , link }) => (
+              <Link key={label} className={`nav-link${active ? " active" : ""}`} to={link}>
                 {label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Actions */}
-          <div className="header-actions">
+          {/* <div className="header-actions">
             <button className="btn-secondary">Sign In</button>
             <button className="text-green-600">Get API Key</button>
-          </div>
+          </div> */}
 
           {/* Hamburger */}
           <button className="hamburger" onClick={() => setMenuOpen(o => !o)}>

@@ -16,6 +16,7 @@ export default function Footer() {
           left: 0;
           right: 0;
           z-index: 1000;
+          
           font-family: 'JetBrains Mono', monospace;
           background: rgba(8, 11, 16, 0.97);
           border-top: 1px solid #1a2030;
@@ -52,7 +53,7 @@ export default function Footer() {
 
         .footer-tagline {
           font-size: 10px;
-          color: #2a3a4a;
+          color: #ffff;
           letter-spacing: 0.1em;
           text-transform: uppercase;
         }
@@ -91,7 +92,7 @@ export default function Footer() {
 
         .footer-link {
           font-size: 10px;
-          color: #2a3a4a;
+          color: #fff;
           cursor: pointer;
           letter-spacing: 0.08em;
           text-decoration: none;
@@ -105,7 +106,7 @@ export default function Footer() {
 
         .footer-version {
           font-size: 10px;
-          color: #1e2a3a;
+          color: #ffff;
           letter-spacing: 0.08em;
         }
 
@@ -116,7 +117,8 @@ export default function Footer() {
         }
       `}</style>
 
-      <footer className="footer-root">
+      <footer className=" min-h-10">
+        <div className="footer-root ">
         <div className="footer-inner">
           {/* Left */}
           <div className="footer-left">
@@ -154,8 +156,10 @@ export default function Footer() {
               </a>
             ))}
             <span className="footer-sep">·</span>
-            <span className="footer-version">© 2026 devapi</span>
+            <span className="footer-version">© 2026 Test Mode</span>
           </div>
+        </div>
+
         </div>
       </footer>
     </>
