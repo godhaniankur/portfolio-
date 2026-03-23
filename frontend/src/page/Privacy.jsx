@@ -41,7 +41,7 @@ export const Privacy = () => {
 
       <h2 className="text-xl font-semibold mt-6 mb-2">7. Contact Us</h2>
       <p>
-        If you have any questions, contact us at: <span className="font-medium">testmode@email.com</span>
+        If you have any questions, contact us at: <span className="font-medium">support.testmode@gmail.com</span>
       </p>
     </div>
 

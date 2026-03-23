@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function DeveloperContact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    environment: 'staging',
-    category: 'feature',
-    message: ''
+  // Initialize react-hook-form
+  const { 
+    register, 
+    handleSubmit, 
+    reset,
+    formState: { errors, isSubmitting } 
+  } = useForm({
+    defaultValues: {
+      environment: 'staging',
+      category: 'feature'
+    }
   });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the data to your backend/API
-    console.log('Developer Suggestion Registered:', formData);
-    setIsSubmitted(true);
+  // react-hook-form passes the validated data directly to this function
+  const onSubmit = (data) => {
+    // Here you would send the data to your backend
+    console.log('Developer Suggestion Registered:', data);
     
-    // Reset form after 3 seconds for demonstration
+    setIsSubmitted(true);
+    reset(); // Built-in function to clear the form fields
+    
+    // Reset success message after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
   };
 
@@ -29,7 +34,7 @@ export default function DeveloperContact() {
       <div className="max-w-5xl w-full bg-white shadow-2xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-5">
         
         {/* Left Side: Information & Resources */}
-        <div className="bg-blue-900 text-white p-10 md:col-span-2 flex flex-col justify-between">
+        <div className="bg-green-900 text-white p-10 md:col-span-2 flex flex-col justify-between">
           <div>
             <h2 className="text-3xl font-bold mb-4">Dev Support</h2>
             <p className="text-blue-200 mb-8 leading-relaxed">
@@ -37,21 +42,15 @@ export default function DeveloperContact() {
             </p>
             
             <div className="space-y-6">
-              <div>
-                <h3 className="text-sm uppercase text-blue-400 font-semibold tracking-wider">Documentation</h3>
+              {/* <div>
+                <h3 className="text-sm uppercase text-green-400 font-semibold tracking-wider">Documentation</h3>
                 <p className="mt-1 text-gray-100">docs.developer.local/api</p>
-              </div>
+              </div> */}
               <div>
-                <h3 className="text-sm uppercase text-blue-400 font-semibold tracking-wider">Direct Email</h3>
-                <p className="mt-1 text-gray-100">api-support@yourdomain.com</p>
+                <h3 className="text-sm uppercase text-green-400 font-semibold tracking-wider">Direct Email</h3>
+                <p className="mt-1 text-gray-100">support.testmode@gmail.com</p>
               </div>
-              <div>
-                <h3 className="text-sm uppercase text-blue-400 font-semibold tracking-wider">System Status</h3>
-                <p className="mt-1 text-green-400 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                  All Systems Operational
-                </p>
-              </div>
+         
             </div>
           </div>
         </div>
@@ -66,20 +65,18 @@ export default function DeveloperContact() {
               <p>Thank you for your suggestion. Our engineering team will review your feedback shortly.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Developer Name</label>
                   <input
                     type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
+                    {...register("name", { required: "Name is required" })}
                     placeholder="e.g. Jane Doe"
-                    className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                    className={`w-full border p-3 rounded-lg focus:outline-none focus:ring-2 transition-shadow ${errors.name ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-500'}`}
                   />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                 </div>
 
                 {/* Email */}
@@ -87,13 +84,17 @@ export default function DeveloperContact() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                   <input
                     type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
+                    {...register("email", { 
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address"
+                      }
+                    })}
                     placeholder="dev@example.com"
-                    className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                    className={`w-full border p-3 rounded-lg focus:outline-none focus:ring-2 transition-shadow ${errors.email ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-500'}`}
                   />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
               </div>
 
@@ -102,9 +103,7 @@ export default function DeveloperContact() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Testing Environment</label>
                   <select
-                    name="environment"
-                    value={formData.environment}
-                    onChange={handleChange}
+                    {...register("environment")}
                     className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                   >
                     <option value="local">Local Development</option>
@@ -118,9 +117,7 @@ export default function DeveloperContact() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Suggestion Category</label>
                   <select
-                    name="category"
-                    value={formData.category}
-                    onChange={handleChange}
+                    {...register("category")}
                     className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                   >
                     <option value="feature">Feature Request</option>
@@ -135,22 +132,24 @@ export default function DeveloperContact() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Suggestion / Details</label>
                 <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
+                  {...register("message", { 
+                    required: "Please provide details for your suggestion",
+                    minLength: { value: 10, message: "Message must be at least 10 characters long" }
+                  })}
                   rows="4"
                   placeholder="Describe your suggestion, the expected behavior, or the missing test data..."
-                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow resize-none"
+                  className={`w-full border p-3 rounded-lg focus:outline-none focus:ring-2 transition-shadow resize-none ${errors.message ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-500'}`}
                 />
+                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
               </div>
 
               {/* Submit Button */}
               <button 
-                type="submit" 
-                className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all duration-200"
+                type="submit"   
+                disabled={isSubmitting}
+                className="w-full bg-green-600 text-gray-200 font-semibold py-3 rounded-lg hover:bg-green-700 focus:ring-4  transition-all duration-200 disabled:bg-blue-400 disabled:cursor-not-allowed"
               >
-                Submit Registration
+                {isSubmitting ? 'Submitting...' : 'Submit Registration'}
               </button>
             </form>
           )}
