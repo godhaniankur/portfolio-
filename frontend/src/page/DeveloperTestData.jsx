@@ -25,7 +25,7 @@ export default function DeveloperTestData() {
   const [copied, setCopied] = useState(null);
   const [selected, setSelected] = useState(null);
   const [page, setPage] = useState(1);
-  const PER_PAGE = 12;
+  const PER_PAGE = 20;
 
   const states = useMemo(() => ["All", ...Array.from(new Set(Address.map((a) => a.state))).sort()], []);
 

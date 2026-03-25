@@ -252,7 +252,7 @@ export default function Header() {
         }
       `}</style>
 
-      <header className={`header-root${scrolled ? " scrolled" : ""}`}>
+      <header className={`header-root  ${scrolled ? " scrolled" : ""}`}>
         <div className="header-inner">
           {/* Logo */}
           <a className="header-logo" href="#">
@@ -276,7 +276,8 @@ export default function Header() {
             {[
               { label: "Playground", active: true },
               { label: "Devloper Test" ,link:"/"},
-              // { label: "Changelog" },
+              { label: "GST Information" ,link:"/GST-Information"},
+              // { label: "Validation Function" , link:"/validation" },
               // { label: "Status" },
               // { label: "SDKs" },
             ].map(({ label, active , link }) => (

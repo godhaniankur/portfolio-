@@ -11,6 +11,8 @@ import Home from './componets/HomePage';
 import Footer from './componets/Footer';
 import Header from './componets/Navbar';
 import DeveloperTestData from './page/DeveloperTestData';
+import ValidationTest from './page/ValidationTest';
+import GST from './page/GST';
 
 
 
@@ -25,6 +27,8 @@ function App() {
               <Route path="/home" element={<Home/>} />
               <Route path='/' element={<DeveloperTestData/>} />
               <Route path='/privacy' element={<Privacy/>} />
+              {/* <Route path='/validation' element={<ValidationTest/>} /> */}
+              <Route path='/GST-Information' element={<GST/>} />
               <Route path='/About' element={<About/>} />
               <Route path='/contact' element={<DeveloperContact />} />
               <Route path='*' element={<NotFound/>} />
