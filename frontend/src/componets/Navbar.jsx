@@ -1,5 +1,6 @@
+import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -10,6 +11,10 @@ export default function Header() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+   const Location = useLocation();
+
+   
 
   return (
     <>
@@ -256,32 +261,23 @@ export default function Header() {
         <div className="header-inner">
           {/* Logo */}
           <a className="header-logo" href="#">
-            <span className="logo-icon">⬡</span>
-            <span className="logo-text"><a href="/home">Test Mode</a></span>
-            <span className="logo-badge">v2.4.1</span>
+            <span className="text-primary-500">⬡</span>
+            <span className="text-primary-500"><a href="/home">Test Mode</a></span>
           </a>
 
-          <div className="header-divider" />
+        
 
-          {/* Status */}
-          <div className="header-status">
-            <span className="status-dot" />
-            OPERATIONAL
-          </div>
-
-          <div className="header-divider" />
 
           {/* Nav Links */}
-          <nav className="header-nav">
+          <nav className="header-nav space-x-5">
             {[
-              { label: "Playground", active: true },
-              { label: "Devloper Test" ,link:"/"},
-              { label: "GST Information" ,link:"/GST-Information"},
-              // { label: "Validation Function" , link:"/validation" },
+              { label: "Devloper Test" ,link:"/" , active:(Location.pathname === "/")},
+              { label: "GST Information" ,link:"/GST-Information" , active:(Location.pathname === "/GST-Information")},
+              // { label: "Validation Function" , link:"/validation" }, 
               // { label: "Status" },
               // { label: "SDKs" },
             ].map(({ label, active , link }) => (
-              <Link key={label} className={`nav-link${active ? " active" : ""}`} to={link}>
+              <Link key={label} className={` text-[13px] transition-all ease-linear duration-200 ${active ? "p-2 bg-primary-500 rounded px-3 text-base" : "text-primary-50/50"} `} to={link}>
                 {label}
               </Link>
             ))}

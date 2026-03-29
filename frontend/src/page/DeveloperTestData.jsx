@@ -143,7 +143,7 @@ const PANs = generatePANs(120);
 const STATE_COLORS = {
   Gujarat: "bg-emerald-900 text-emerald-300 border-emerald-700",
   Maharashtra: "bg-teal-900 text-teal-300 border-teal-700",
-  Karnataka: "bg-green-900 text-green-300 border-green-700",
+  Karnataka: "bg-green-900 text-primary-50 border-green-700",
   Delhi: "bg-lime-900 text-lime-300 border-lime-700",
   "Tamil Nadu": "bg-cyan-900 text-cyan-300 border-cyan-700",
   Telangana: "bg-emerald-900 text-emerald-200 border-emerald-600",
@@ -161,18 +161,18 @@ const STATE_COLORS = {
 // ─── TABS CONFIG ───────────────────────────────────────────────────────────
 
 const TABS = [
-  { id: "address", label: "Address", icon: "⌖", color: "text-green-400", accent: "bg-green-500", border: "border-green-500" },
-  { id: "gstin", label: "GST IN", icon: "◈", color: "text-emerald-400", accent: "bg-emerald-500", border: "border-emerald-500" },
-  { id: "email", label: "Email", icon: "✉", color: "text-teal-400", accent: "bg-teal-500", border: "border-teal-500" },
-  { id: "phone", label: "Phone", icon: "☎", color: "text-cyan-400", accent: "bg-cyan-500", border: "border-cyan-500" },
-  { id: "pan", label: "PAN", icon: "⬡", color: "text-lime-400", accent: "bg-lime-500", border: "border-lime-500" },
+  { id: "address", label: "Address", icon: "⌖", color: "text-primary-400", accent: "bg-primary-500", border: "border-primary-500" },
+  { id: "gstin", label: "GST IN", icon: "◈", color: "text-primary-400", accent: "bg-primary-500" , border: "border-primary-500" },
+  { id: "email", label: "Email", icon: "✉", color: "text-primary-400", accent: "bg-primary-500" , border: "border-primary-500" },
+  { id: "phone", label: "Phone", icon: "☎", color: "text-primary-400", accent: "bg-primary-500" , border: "border-primary-500" },
+  { id: "pan", label: "PAN", icon: "⬡", color: "text-primary-400", accent: "bg-primary-500", border: "border-primary-500" },
 ];
 
 // ─── SHARED HELPERS ────────────────────────────────────────────────────────
 
 function StateTag({ state }) {
-  const cls = STATE_COLORS[state] || "bg-green-900 text-green-300 border-green-700";
-  return <span className={`text-xs font-mono px-2 py-0.5 rounded border ${cls}`}>{state}</span>;
+  const cls =  " text-primary-500 ";
+  return <span className={`text-xs  px-2 py-0.5 rounded border ${cls}`}>{state}</span>;
 }
 
 function CopyBtn({ text, label, copyKey, copied, onCopy, accent }) {
@@ -180,7 +180,7 @@ function CopyBtn({ text, label, copyKey, copied, onCopy, accent }) {
   return (
     <button
       onClick={(e) => { e.stopPropagation(); onCopy(text, copyKey); }}
-      className={`flex-1 py-1.5 text-xs font-mono border rounded transition-all ${done ? `${accent} text-black border-transparent` : "border-green-900 text-green-600 hover:border-green-500 hover:text-green-300"}`}
+      className={`flex-1 py-1.5 text-xs  transition-all ${done ? `${accent} text-black border-transparent` : ""} bg-primary-600 rounded-md text-primary-50 cursor-pointer hover:bg-primary-700`}
     >
       {done ? "✓ Copied" : label}
     </button>
@@ -219,16 +219,16 @@ function AddressPage({ copied, onCopy }) {
           {paginated.map((addr, i) => {
             const idx = (page - 1) * PER_PAGE + i;
             return (
-              <div key={idx} className="border border-green-900 rounded-lg p-4 hover:border-green-600 transition-all bg-black group relative cursor-pointer" onClick={() => setSelected(selected === idx ? null : idx)}>
-                <div className="absolute top-3 right-3 text-green-800 text-xs font-mono">#{idx}</div>
+              <div key={idx} className="border rounded-lg p-4 border-primary-50/30 transition-all bg-surface-alt group relative cursor-pointer" onClick={() => setSelected(selected === idx ? null : idx)}>
+                <div className="absolute top-3 right-3 text-secondary-50 text-xs font-mono">#{idx}</div>
                 <div className="mb-2"><StateTag state={addr.state} /></div>
-                <div className="text-green-300 font-bold text-sm mb-1">{addr.city}</div>
-                <p className="text-green-700 text-xs leading-relaxed mb-3 line-clamp-2">{addr.longaddress}</p>
+                <div className="text-primary-50 font-bold text-sm mb-1">{addr.city}</div>
+                <p className="text-primary-500 text-xs leading-relaxed mb-3 line-clamp-2">{addr.longaddress}</p>
                 <div className="grid grid-cols-2 gap-1 mb-3">
                   {[{ label: "ZIP", val: addr.Zipcode }, { label: "CODE", val: addr.countrycode }, { label: "STATE", val: addr.state }, { label: "COUNTRY", val: addr.country }].map(({ label, val }) => (
-                    <div key={label} className="bg-green-950 rounded px-2 py-1">
-                      <div className="text-green-700 text-xs leading-none mb-0.5">{label}</div>
-                      <div className="text-green-300 text-xs font-mono truncate">{val}</div>
+                    <div key={label} className="bg-secondary-600/30 rounded px-2 py-1">
+                      <div className="text-primary-50 text-xs leading-none mb-0.5">{label}</div>
+                      <div className="text-primary-50 text-xs font-mono truncate">{val}</div>
                     </div>
                   ))}
                 </div>
@@ -248,7 +248,7 @@ function AddressPage({ copied, onCopy }) {
             return (
               <tr key={idx} className="border-b border-green-950 hover:bg-green-950 transition-colors">
                 <td className="px-4 py-3 text-green-800">{idx}</td>
-                <td className="px-4 py-3 text-green-300 max-w-xs truncate" title={addr.longaddress}>{addr.longaddress}</td>
+                <td className="px-4 py-3 text-primary-50 max-w-xs truncate" title={addr.longaddress}>{addr.longaddress}</td>
                 <td className="px-4 py-3 text-green-400">{addr.city}</td>
                 <td className="px-4 py-3"><StateTag state={addr.state} /></td>
                 <td className="px-4 py-3 text-green-400">{addr.Zipcode}</td>
@@ -294,16 +294,16 @@ function GSTINPage({ copied, onCopy }) {
           {paginated.map((item, i) => {
             const idx = (page - 1) * PER_PAGE + i;
             return (
-              <div key={idx} className="border border-emerald-900 rounded-lg p-4 hover:border-emerald-600 transition-all bg-black cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
-                <div className="absolute top-3 right-3 text-emerald-800 text-xs font-mono">#{idx}</div>
+              <div key={idx} className="border border-primary-50/30 rounded-lg p-4 hover:border-emerald-600 transition-all bg-surface-alt cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
+                <div className="absolute top-3 right-3 text-secondary-50 text-xs font-mono">#{idx}</div>
                 <div className="mb-2"><StateTag state={item.state} /></div>
-                <div className="font-mono text-emerald-300 text-sm font-bold tracking-widest mb-1 break-all">{item.gstin}</div>
-                <div className="text-emerald-600 text-xs mb-3 truncate">{item.companyName}</div>
+                <div className="font-mono text-primary-50 text-sm font-bold tracking-widest mb-1 break-all">{item.gstin}</div>
+                <div className="text-primary-600 text-xs mb-3 truncate">{item.companyName}</div>
                 <div className="grid grid-cols-2 gap-1 mb-3">
                   {[{ label: "PAN", val: item.pan }, { label: "TYPE", val: item.companyType }, { label: "CITY", val: item.city }, { label: "REG DATE", val: item.registrationDate }].map(({ label, val }) => (
-                    <div key={label} className="bg-emerald-950 rounded px-2 py-1">
-                      <div className="text-emerald-700 text-xs leading-none mb-0.5">{label}</div>
-                      <div className="text-emerald-300 text-xs font-mono truncate">{val}</div>
+                    <div key={label} className="bg-secondary-600/30 rounded px-2 py-1">
+                      <div className="text-primary-50 text-xs leading-none mb-0.5">{label}</div>
+                      <div className="text-primary-50 text-xs font-mono truncate">{val}</div>
                     </div>
                   ))}
                 </div>
@@ -369,21 +369,21 @@ function EmailPage({ copied, onCopy }) {
             const idx = (page - 1) * PER_PAGE + i;
             const [user, dom] = item.email.split("@");
             return (
-              <div key={idx} className="border border-teal-900 rounded-lg p-4 hover:border-teal-600 transition-all bg-black cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
-                <div className="absolute top-3 right-3 text-teal-800 text-xs font-mono">#{idx}</div>
+              <div key={idx} className="border border-primary-50/30 rounded-lg p-4  transition-all cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
+                <div className="absolute top-3 right-3 text-secondary-50 text-xs font-mono">#{idx}</div>
                 <div className="mb-2 flex gap-2 items-center flex-wrap">
                   <StateTag state={item.state} />
                   <span className={`text-xs font-mono px-2 py-0.5 rounded border ${item.type === "Business" ? "bg-teal-900 text-teal-300 border-teal-600" : "bg-cyan-900 text-cyan-300 border-cyan-700"}`}>{item.type}</span>
                 </div>
                 <div className="mb-1">
-                  <span className="text-teal-300 font-mono text-sm font-bold">{user}</span>
-                  <span className="text-teal-700 font-mono text-sm">@{dom}</span>
+                  <span className="text-primary-50 font-mono text-sm font-bold">{user}@{dom}</span>
+                 
                 </div>
                 <div className="grid grid-cols-2 gap-1 mb-3 mt-3">
                   {[{ label: "DOMAIN", val: item.domain }, { label: "TYPE", val: item.type }, { label: "CITY", val: item.city }, { label: "STATE", val: item.state }].map(({ label, val }) => (
-                    <div key={label} className="bg-teal-950 rounded px-2 py-1">
-                      <div className="text-teal-700 text-xs leading-none mb-0.5">{label}</div>
-                      <div className="text-teal-300 text-xs font-mono truncate">{val}</div>
+                    <div key={label} className="bg-secondary-600/30 rounded px-2 py-1">
+                      <div className="text-primary-50 text-xs leading-none mb-0.5">{label}</div>
+                      <div className="text-primary-50 text-xs font-mono truncate">{val}</div>
                     </div>
                   ))}
                 </div>
@@ -450,20 +450,20 @@ function PhonePage({ copied, onCopy }) {
             const idx = (page - 1) * PER_PAGE + i;
             const cc = CARRIER_COLOR[item.carrier] || "bg-gray-900 text-gray-300 border-gray-700";
             return (
-              <div key={idx} className="border border-cyan-900 rounded-lg p-4 hover:border-cyan-600 transition-all bg-black cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
-                <div className="absolute top-3 right-3 text-cyan-800 text-xs font-mono">#{idx}</div>
+              <div key={idx} className="border border-primary-50/30  rounded-lg p-4 transition-all  cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
+                <div className="absolute top-3 right-3 text-primary-50 text-xs font-mono">#{idx}</div>
                 <div className="mb-2 flex gap-2 flex-wrap">
                   <StateTag state={item.state} />
                   <span className={`text-xs font-mono px-2 py-0.5 rounded border ${cc}`}>{item.carrier}</span>
-                  {item.whatsapp && <span className="text-xs font-mono px-2 py-0.5 rounded border bg-green-900 text-green-300 border-green-700">WA</span>}
+                  {item.whatsapp && <span className="text-xs font-mono px-2 py-0.5 rounded border bg-green-900 text-primary-50 border-green-700">WA</span>}
                 </div>
-                <div className="text-cyan-300 font-mono text-lg font-bold tracking-widest mb-1">{item.number}</div>
-                <div className="text-cyan-700 text-xs mb-3">{item.fullName}</div>
+                <div className="text-primary-50  font-mono text-lg font-bold tracking-widest mb-1">{item.number}</div>
+                <div className="text-secondary-100 text-xs mb-3">{item.fullName}</div>
                 <div className="grid grid-cols-2 gap-1 mb-3">
                   {[{ label: "CARRIER", val: item.carrier }, { label: "WHATSAPP", val: item.whatsapp ? "Yes" : "No" }, { label: "CITY", val: item.city }, { label: "STATE", val: item.state }].map(({ label, val }) => (
-                    <div key={label} className="bg-cyan-950 rounded px-2 py-1">
-                      <div className="text-cyan-700 text-xs leading-none mb-0.5">{label}</div>
-                      <div className="text-cyan-300 text-xs font-mono truncate">{val}</div>
+                    <div key={label} className="bg-secondary-600/30 rounded px-2 py-1">
+                      <div className="text-primary-50 text-xs leading-none mb-0.5">{label}</div>
+                      <div className="text-primary-50 text-xs font-mono truncate">{val}</div>
                     </div>
                   ))}
                 </div>
@@ -522,7 +522,7 @@ function PANPage({ copied, onCopy }) {
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
-  const TYPE_COLOR = { Individual: "bg-lime-900 text-lime-300 border-lime-700", Company: "bg-green-900 text-green-300 border-green-700", HUF: "bg-emerald-900 text-emerald-300 border-emerald-700", Firm: "bg-teal-900 text-teal-300 border-teal-700", Trust: "bg-cyan-900 text-cyan-300 border-cyan-700", AOP: "bg-lime-900 text-lime-200 border-lime-600" };
+  const TYPE_COLOR = { Individual: "bg-lime-900 text-lime-300 border-lime-700", Company: "bg-green-900 text-primary-50 border-green-700", HUF: "bg-emerald-900 text-emerald-300 border-emerald-700", Firm: "bg-teal-900 text-teal-300 border-teal-700", Trust: "bg-cyan-900 text-cyan-300 border-cyan-700", AOP: "bg-lime-900 text-lime-200 border-lime-600" };
 
   return (
     <CategoryShell search={search} setSearch={(v) => { setSearch(v); setPage(1); }} filterState={filterState} setFilterState={(v) => { setFilterState(v); setPage(1); }} states={states} view={view} setView={setView} filtered={filtered} accent="bg-lime-500">
@@ -532,19 +532,19 @@ function PANPage({ copied, onCopy }) {
             const idx = (page - 1) * PER_PAGE + i;
             const tc = TYPE_COLOR[item.type] || "bg-lime-900 text-lime-300 border-lime-700";
             return (
-              <div key={idx} className="border border-lime-900 rounded-lg p-4 hover:border-lime-600 transition-all bg-black cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
-                <div className="absolute top-3 right-3 text-lime-800 text-xs font-mono">#{idx}</div>
+              <div key={idx} className="border border-primary-50/30  rounded-lg p-4  transition-all  cursor-pointer relative" onClick={() => setSelected(selected === idx ? null : idx)}>
+                <div className="absolute top-3 right-3 text-secondary-50 text-xs font-mono">#{idx}</div>
                 <div className="mb-2 flex gap-2 flex-wrap">
                   <StateTag state={item.state} />
                   <span className={`text-xs font-mono px-2 py-0.5 rounded border ${tc}`}>{item.type}</span>
                 </div>
-                <div className="text-lime-300 font-mono text-xl font-black tracking-[0.3em] mb-1">{item.pan}</div>
-                <div className="text-lime-700 text-xs mb-3">{item.name}</div>
+                <div className="text-primary-50 font-mono text-xl font-black tracking-[0.3em] mb-1">{item.pan}</div>
+                <div className="text-secondary-100 text-xs mb-3">{item.name}</div>
                 <div className="grid grid-cols-2 gap-1 mb-3">
                   {[{ label: "TYPE", val: item.type }, { label: "CODE", val: item.typeCode }, { label: "CITY", val: item.city }, { label: "ISSUED", val: item.issuedYear }].map(({ label, val }) => (
-                    <div key={label} className="bg-lime-950 rounded px-2 py-1">
-                      <div className="text-lime-700 text-xs leading-none mb-0.5">{label}</div>
-                      <div className="text-lime-300 text-xs font-mono truncate">{val}</div>
+                    <div key={label} className="bg-secondary-600/30 rounded px-2 py-1">
+                      <div className="text-primary-50 text-xs leading-none mb-0.5">{label}</div>
+                      <div className="text-primary-50 text-xs font-mono truncate">{val}</div>
                     </div>
                   ))}
                 </div>
@@ -591,26 +591,26 @@ function CategoryShell({ search, setSearch, filterState, setFilterState, states,
   return (
     <div>
       {/* Filters bar */}
-      <div className="sticky top-[57px] z-10 bg-black border-b border-green-900 px-6 py-3 flex flex-wrap gap-3 items-center">
+      <div className="sticky top-[100px] z-10 bg-base border-b border-primary-500 px-6 py-3 flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-48">
           <input
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search..."
-            className="w-full bg-black border border-green-800 px-3 py-1.5 text-xs font-mono text-green-200 placeholder-green-800 rounded focus:outline-none focus:border-green-500 transition-all"
+            className="w-full  border border-primary-800 text-primary-50 px-3 py-1.5 text-xs font-mono   rounded focus:outline-none focus:border-primary-500 transition-all"
           />
         </div>
         <select
           value={filterState}
           onChange={e => setFilterState(e.target.value)}
-          className="bg-black border border-green-800 text-green-400 text-xs font-mono px-3 py-1.5 rounded focus:outline-none focus:border-green-500 transition-all"
+          className=" text-primary-500 border  text-xs font-mono px-3 py-1.5 rounded focus:outline-none transition-all"
         >
           {states.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
-        <span className="text-green-700 text-xs font-mono">{filtered.length} results</span>
-        <div className="flex border border-green-800 rounded overflow-hidden">
-          <button onClick={() => setView("grid")} className={`px-3 py-1.5 text-xs font-mono transition-all ${view === "grid" ? `${accent} text-black` : "text-green-600 hover:text-green-400"}`}>⊞ Grid</button>
-          <button onClick={() => setView("table")} className={`px-3 py-1.5 text-xs font-mono transition-all ${view === "table" ? `${accent} text-black` : "text-green-600 hover:text-green-400"}`}>☰ Table</button>
+       
+        <div className="flex border border-primary-50/30 rounded overflow-hidden">
+          <button onClick={() => setView("grid")} className={`px-3 py-1.5 text-xs font-mono transition-all ${view === "grid" ? `bg-primary-600 text-primary-50` : "text-primary-600 hover:text-primary-400"}`}>⊞ Grid</button>
+          <button onClick={() => setView("table")} className={`px-3 py-1.5 text-xs font-mono transition-all ${view === "table" ? `bg-primary-600 text-primary-50` : "text-primary-600 hover:text-primary-400"}`}>☰ Table</button>
         </div>
       </div>
       <div className="px-6 py-6">{children}</div>
@@ -639,7 +639,7 @@ function IconCopyBtn({ text, copyKey, label, copied, onCopy }) {
   return (
     <button
       onClick={e => { e.stopPropagation(); onCopy(text, copyKey); }}
-      className="px-2 py-1 border border-green-900 text-green-700 hover:text-green-300 hover:border-green-600 rounded transition-all"
+      className="px-2 py-1 border border-green-900 text-green-700 hover:text-primary-50 hover:border-green-600 rounded transition-all"
     >
       {copied === copyKey ? "✓" : label}
     </button>
@@ -650,7 +650,7 @@ function Pagination({ page, totalPages, setPage, total }) {
   if (totalPages <= 1) return null;
   return (
     <div className="flex flex-wrap items-center justify-between mt-6 gap-3">
-      <span className="text-green-700 text-xs font-mono">Page {page} of {totalPages} · {total} records</span>
+      <span className="text-primary-50 text-xs font-mono">Page {page} of {totalPages} · {total} records</span>
       <div className="flex gap-1">
         <PBtn onClick={() => setPage(1)} disabled={page === 1}>«</PBtn>
         <PBtn onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1}>‹</PBtn>
@@ -670,7 +670,7 @@ function PBtn({ onClick, disabled, active, children }) {
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`px-3 py-1.5 text-xs font-mono border rounded transition-all ${active ? "bg-green-500 text-black border-green-500" : disabled ? "border-green-900 text-green-800 opacity-30" : "border-green-900 text-green-600 hover:border-green-500"}`}
+      className={`px-3 py-1.5 text-xs font-mono border rounded transition-all ${active ? "bg-primary-500 text-primary-50 " : disabled ? "border-primary-900 text-primary-800 opacity-30" : "border-primary-900 text-primary-600 hover:border-primary-500"}`}
     >{children}</button>
   );
 }
@@ -699,38 +699,24 @@ export default function DeveloperTestData() {
         <meta name="keywords" content="dummy data generator, dummy data for testing, free dummy data generator, dummy data generator online free, fake name generator, fake email generator, fake phone number generator, random address generator, random email generator, random pan no generator, dummy json data, fake user data generator, mockaroo" />
         <link rel="canonical" href="https://test-mode.com" />
       </Helmet>
-      <div className="min-h-screen bg-black text-green-100" style={{ fontFamily: "'JetBrains Mono','Fira Code',monospace" }}>
+      <div className="min-h-screen bg-base" style={{ fontFamily: "'JetBrains Mono','Fira Code',monospace" }}>
 
-        {/* HEADER */}
-        <div className="border-b border-green-900 px-6 py-4 flex items-center justify-between sticky top-0 bg-black z-20">
-          <div className="flex items-center gap-3">
-            <div className={`w-9 h-9 ${activeTabMeta.accent} rounded-sm flex items-center justify-center text-black font-black text-sm tracking-tight transition-all`}>
-              {activeTabMeta.icon}
-            </div>
-            <div>
-              <h1 className={`${activeTabMeta.color} font-bold text-base tracking-tight leading-none transition-colors`}>
-                {activeTabMeta.label} Test Data
-              </h1>
-              <p className="text-green-700 text-xs mt-0.5">{DATA_COUNTS[activeTab]} records · India</p>
-            </div>
-          </div>
-          <div className="text-green-800 text-xs font-mono hidden sm:block">DEV TOOLKIT v2</div>
-        </div>
+       
 
         {/* TAB NAV */}
-        <div className="sticky top-[57px] z-20 bg-black border-b border-green-900 px-6 flex gap-0 overflow-x-auto">
+        <div className="sticky top-[57px] z-20 bg-base  border-b border-primary-500 px-6 flex gap-0 overflow-x-auto">
           {TABS.map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-4 py-3 text-xs font-mono whitespace-nowrap transition-all border-b-2 ${activeTab === tab.id
                   ? `${tab.color} ${tab.border}`
-                  : "text-green-800 border-transparent hover:text-green-500"
+                  : "text-primary-50 border-transparent hover:text-primary-500"
                 }`}
             >
               <span>{tab.icon}</span>
               <span>{tab.label}</span>
-              <span className={`text-xs px-1.5 py-0.5 rounded font-mono ${activeTab === tab.id ? "bg-green-900 text-green-500" : "bg-green-950 text-green-800"}`}>
+              <span className={`text-xs px-1.5 py-0.5 rounded font-mono ${activeTab === tab.id ? "bg-secondary-900 text-secondary-50" : "bg-secondary-900 text-secondary-50"}`}>
                 {DATA_COUNTS[tab.id]}
               </span>
             </button>
@@ -738,11 +724,14 @@ export default function DeveloperTestData() {
         </div>
 
         {/* PAGE CONTENT */}
+        <div className=" mt-10">
+
         {activeTab === "address" && <AddressPage copied={copied} onCopy={onCopy} />}
         {activeTab === "gstin" && <GSTINPage copied={copied} onCopy={onCopy} />}
         {activeTab === "email" && <EmailPage copied={copied} onCopy={onCopy} />}
         {activeTab === "phone" && <PhonePage copied={copied} onCopy={onCopy} />}
         {activeTab === "pan" && <PANPage copied={copied} onCopy={onCopy} />}
+        </div>
       </div>
     </>
   );
