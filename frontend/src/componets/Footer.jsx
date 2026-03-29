@@ -81,7 +81,7 @@ export default function Footer() {
           width: 5px;
           height: 5px;
           border-radius: 50%;
-          background: #00e676;
+          background: #06b6d4 ;
         }
 
         .footer-right {
@@ -122,7 +122,7 @@ export default function Footer() {
         <div className="footer-inner">
           {/* Left */}
           <div className="footer-left">
-            <span className="footer-logo">⬡ Test Mode</span>
+            <span className="text-primary-500 text-sm">⬡ Test Mode</span>
             <span className="footer-sep">·</span>
             <span className="footer-tagline">Mock data · Not for production</span>
           </div>
