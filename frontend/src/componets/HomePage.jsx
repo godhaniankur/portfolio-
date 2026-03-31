@@ -55,8 +55,8 @@ const MOCK_CATEGORIES = [
 ];
 
 const LINKS = [
-  { method: "GET", url: "/api/mock/users?count=10", badge: "JSON", color: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40" },
-  { method: "POST", url: "/api/mock/orders/generate", badge: "JSON", color: "bg-violet-500/20 text-violet-300 border-violet-500/40" },
+  { method: "GET", url: "https://test-mode.com/api/products", badge: "JSON", color: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40" },
+  { method: "POST", url: "https://test-mode.com/api/products", badge: "JSON", color: "bg-violet-500/20 text-violet-300 border-violet-500/40" },
   { method: "GET", url: "/api/mock/products?category=electronics", badge: "JSON", color: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40" },
   { method: "DELETE", url: "/api/mock/session/clear", badge: "204", color: "bg-red-500/20 text-red-300 border-red-500/40" },
 ];
@@ -132,6 +132,13 @@ export default function Home() {
 );
 const data = await res.json();`,
   };
+
+  // useEffect(()=>{
+  //     const test = async () =>{
+  //          await fetch('https://test-mode.com/api/products').then((res)=>console.log("res",res)).catch((err)=>console.error(err))
+  //     }
+  //     test();
+  // },[])
 
   return (
     <div

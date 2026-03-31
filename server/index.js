@@ -8,6 +8,11 @@ app.use(express.json());
 // Initialize: Reset on start
 dbService.reset();
 
+const cors = require('cors');
+
+// This allows ALL origins and ALL methods (GET, POST, etc.)
+app.use(cors());
+
 // 5-Minute Timer Logic
 setInterval(() => {
     dbService.reset();
