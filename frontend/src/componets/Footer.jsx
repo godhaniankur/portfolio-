@@ -61,7 +61,7 @@ export default function Footer() {
         .footer-center {
           display: flex;
           align-items: center;
-          gap: 6.5px;
+          gap: 6px;
         }
 
         .footer-metric {
