@@ -18,7 +18,6 @@ const AdBanner = () => {
       data-ad-slot="5810055092"
       data-ad-format="auto"
       data-full-width-responsive="true"
-   
     />
   );
 };

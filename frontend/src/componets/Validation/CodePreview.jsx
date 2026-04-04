@@ -23,7 +23,7 @@ const CodePreview = ({ snippets }) => {
   if (!languages.length) return <p className="text-green-500">No code provided.</p>;
 
   return (
-    <div className="md:w-full w-sm max-w-3xl max-h-[500px] min-h-[500px]  mx-auto overflow-y-scroll rounded-lg  border-2 border-green-600 bg-black shadow-[0_0_15px_rgba(0,255,0,0.2)] font-mono">
+    <div className="md:w-full w-sm max-w-3xl max-h-[500px] mx-auto overflow-y-scroll rounded-lg  border-2 border-green-600 bg-black shadow-[0_0_15px_rgba(0,255,0,0.2)] font-mono">
       
       {/* Top Bar: Dropdown and Copy Button */}
       <div className="flex justify-between items-center px-4 py-2 bg-gray-900 border-b-2 border-green-600">
@@ -55,7 +55,7 @@ const CodePreview = ({ snippets }) => {
       </div>
 
       {/* Code Display Area */}
-      <div className="p-4 overflow-x-auto">
+      <div className="p-4  overflow-x-auto">
         <pre className="text-green-400 text-sm leading-relaxed whitespace-pre">
           <code>{snippets[activeLang]}</code>
         </pre>

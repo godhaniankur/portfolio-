@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Helmet } from 'react-helmet-async'
+import AdBanner from "../ads/AdBanner";
 // ─── FAKE DATA GENERATORS ───────────────────────────────────────────────
 
 const STATES = ["Gujarat", "Maharashtra", "Karnataka", "Delhi", "Tamil Nadu", "Telangana", "West Bengal", "Rajasthan", "Uttar Pradesh", "Kerala", "Punjab", "Haryana", "Madhya Pradesh", "Bihar", "Odisha"];
@@ -138,25 +139,7 @@ const Emails = generateEmails(120);
 const Phones = generatePhones(120);
 const PANs = generatePANs(120);
 
-// ─── COLOR MAPS ────────────────────────────────────────────────────────────
 
-const STATE_COLORS = {
-  Gujarat: "bg-emerald-900 text-emerald-300 border-emerald-700",
-  Maharashtra: "bg-teal-900 text-teal-300 border-teal-700",
-  Karnataka: "bg-green-900 text-primary-50 border-green-700",
-  Delhi: "bg-lime-900 text-lime-300 border-lime-700",
-  "Tamil Nadu": "bg-cyan-900 text-cyan-300 border-cyan-700",
-  Telangana: "bg-emerald-900 text-emerald-200 border-emerald-600",
-  "West Bengal": "bg-teal-900 text-teal-200 border-teal-600",
-  Rajasthan: "bg-green-900 text-green-200 border-green-600",
-  "Uttar Pradesh": "bg-lime-900 text-lime-200 border-lime-600",
-  Kerala: "bg-cyan-900 text-cyan-200 border-cyan-600",
-  Punjab: "bg-emerald-900 text-emerald-100 border-emerald-500",
-  Haryana: "bg-teal-900 text-teal-100 border-teal-500",
-  "Madhya Pradesh": "bg-green-900 text-green-100 border-green-500",
-  Bihar: "bg-lime-900 text-lime-100 border-lime-500",
-  Odisha: "bg-cyan-900 text-cyan-100 border-cyan-500",
-};
 
 // ─── TABS CONFIG ───────────────────────────────────────────────────────────
 
@@ -732,6 +715,7 @@ export default function DeveloperTestData() {
         {activeTab === "phone" && <PhonePage copied={copied} onCopy={onCopy} />}
         {activeTab === "pan" && <PANPage copied={copied} onCopy={onCopy} />}
         </div>
+        <AdBanner />
       </div>
     </>
   );

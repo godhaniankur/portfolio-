@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Helmet } from 'react-helmet-async'
+import AdBanner from "../ads/AdBanner";
 // GST Regex Pattern
 const GST_REGEX = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
 
@@ -89,15 +90,15 @@ export default function GST() {
                 <meta name="keywords" content="GST Validator, GST Number Check, GSTIN Search, India Tax Tool, GST Information, Fake GST Number, dummy GST Number, GSTIN Validator, GST Number Format, GST Registration, GST Regex" />
                 <link rel="canonical" href="https://test-mode.com/gst-validator" />
             </Helmet>
-            <div className="min-h-screen mt-15 bg-gradient-to-br from-green-950 via-green-950 to-green-950 text-white font-sans">
+            <div className="min-h-screen  bg-gradient-to-br bg-base text-white font-sans">
                 {/* Google Font */}
 
 
                 {/* Header */}
                 <div className="text-center pt-12 pb-6 px-4">
-                    <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-1.5 mb-4">
-                        <span className="badge-animate w-2 h-2 rounded-full bg-green-400 inline-block"></span>
-                        <span className="text-sm text-white tracking-widest uppercase">India GST Guide</span>
+                    <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/30 rounded-full px-4 py-1.5 mb-4">
+                        <span className="badge-animate w-2 h-2 rounded-full bg-primary-400 inline-block"></span>
+                        <span className="text-sm text-primary-50 tracking-widest uppercase">India GST Guide</span>
                     </div>
                     <h1 className="font-display text-5xl font-extrabold text-gray-300  mb-2">
                         GST Number Explorer
@@ -113,7 +114,7 @@ export default function GST() {
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${activeTab === tab.id ? " text-white" : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"}`}
+                            className={`px-5 py-2.5 cursor-pointer rounded-xl text-sm font-semibold transition-all duration-200 ${activeTab === tab.id ? " text-white" : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"}`}
                         >
                             {tab.label}
                         </button>
@@ -333,6 +334,8 @@ export default function GST() {
                         </div>
                     )}
                 </div>
+              
+                <AdBanner />
             </div>
         </>
     );
