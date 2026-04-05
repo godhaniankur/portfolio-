@@ -160,9 +160,9 @@ export default function Header() {
         <div className="header-inner">
 
           {/* Logo */}
-          <Link to="/home" className="header-logo">
-            <span style={{color:"#00e676"}}>⬡</span>
-            <span style={{color:"#00e676"}}>Test Mode</span>
+          <Link to="/home" className="header-logo text-primary-500">
+            <span >⬡</span>
+            <span >Test Mode</span>
           </Link>
 
           {/* Desktop Nav */}
