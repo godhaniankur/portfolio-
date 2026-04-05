@@ -3,7 +3,7 @@ export default function Footer() {
     { label: "Privacy", href: "/privacy" },
     { label: "About", href: "/About" },
     { label: "Contact us", href: "/contact" },
-    // { label: "GitHub", href: "#" }
+    { label: "Terms And Condition", href: "/termsandcondition" }
   ];
   return (
     <>
@@ -123,8 +123,7 @@ export default function Footer() {
           {/* Left */}
           <div className="footer-left">
             <span className="text-primary-500 text-sm">⬡ Test Mode</span>
-            <span className="footer-sep">·</span>
-            <span className="footer-tagline">Mock data · Not for production</span>
+          
           </div>
 
           {/* Center Metrics */}

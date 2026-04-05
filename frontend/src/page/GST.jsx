@@ -120,7 +120,7 @@ export default function GST() {
                         </button>
                     ))}
                 </div>
-
+                 <AdBanner />
                 <div className="max-w-4xl mx-auto px-4 pb-16">
 
                     {/* VALIDATOR TAB */}
@@ -128,7 +128,7 @@ export default function GST() {
                         <div className="space-y-6">
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 glow">
                                 <h2 className="font-display text-xl font-bold mb-4 text-white">Validate GSTIN</h2>
-                                <div className="flex gap-3 mb-4">
+                                <div className="flex flex-wrap gap-3 mb-4">
                                     <input
                                         type="text"
                                         value={gstInput}
@@ -335,7 +335,7 @@ export default function GST() {
                     )}
                 </div>
               
-                <AdBanner />
+               
             </div>
         </>
     );

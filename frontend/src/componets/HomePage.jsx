@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Helmet } from 'react-helmet-async'
+import { useNavigate } from "react-router-dom";
 
 
 const TYPING_PHRASES = [
@@ -138,7 +139,8 @@ export default function Home() {
 const data = await res.json();`,
   };
 
-
+   // ##### Navigetion Defined #####
+   const navigate = useNavigate();
 
   return (
     <>
@@ -182,7 +184,7 @@ const data = await res.json();`,
           <div className="relative z-10 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs mb-8 sans">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              v2.4 — Now with Schema Builder
+                 Now with Schema Builder
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 text-white">
@@ -197,10 +199,10 @@ const data = await res.json();`,
               move fast.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="sans px-7 py-3 bg-cyan-500 text-[#0b0f14] font-semibold rounded text-sm hover:bg-cyan-400 transition-all w-full sm:w-auto">
+              <button className="sans px-7 py-3 bg-cyan-500 text-[#0b0f14] font-semibold rounded text-sm hover:bg-cyan-400 transition-all w-full sm:w-auto cursor-pointer" onClick={()=>navigate("/")}>
                 Start Generating Free →
               </button>
-              <button className="sans px-7 py-3 border border-white/15 text-slate-300 rounded text-sm hover:border-white/30 hover:text-white transition-all w-full sm:w-auto">
+              <button className="sans px-7 py-3 border border-white/15 text-slate-300 rounded text-sm hover:border-white/30 hover:text-white transition-all w-full sm:w-auto cursor-pointer" onClick={()=>navigate("/documentation/GET-Method")}>
                 View Docs
               </button>
             </div>
@@ -344,7 +346,7 @@ const data = await res.json();`,
           </div>
 
           <div className="mt-6 text-center">
-            <button className="sans text-sm text-slate-500 hover:text-cyan-400 transition-colors">
+            <button className="sans cursor-pointer text-sm text-slate-500 hover:text-cyan-400 transition-colors" onClick={()=>navigate("/documentation/GET-Method")}>
               View all 200+ endpoints →
             </button>
           </div>
@@ -365,7 +367,7 @@ const data = await res.json();`,
             <p className="sans text-slate-500 mb-8 text-sm">
               Free forever for individuals. No credit card. No setup. Just open and build.
             </p>
-            <button className="sans px-8 py-4 bg-cyan-500 text-[#0b0f14] font-bold rounded text-sm hover:bg-cyan-400 transition-all">
+            <button onClick={()=>navigate("/user-identity")} className="sans px-8 py-4 bg-cyan-500 text-[#0b0f14] font-bold rounded text-sm hover:bg-cyan-400 transition-all cursor-pointer">
               Open the Toolkit — It's Free →
             </button>
           </div>

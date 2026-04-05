@@ -1,5 +1,6 @@
 import React from 'react'
 import CodeBlock from './CodeBlock';
+import AdBanner from '../ads/AdBanner';
 
 const GET = () => {
     const jsCode = `https://test-mode.com/api/products`;
@@ -43,9 +44,9 @@ except requests.exceptions.RequestException as e:
     print("API Error:", e)`
 
     return (
-        <div>
-            <section className=' w-8/12  mx-auto'>
-                <h1 className='mt-2'>GET METHOD</h1>
+        <div >
+            <section className=' lg:w-8/12 w-11/12  mx-auto'>
+                <h1 className='mt-2 font-medium'>GET METHOD</h1>
                 <div className=''>
                     <CodeBlock
                         code={jsCode}
@@ -59,6 +60,7 @@ except requests.exceptions.RequestException as e:
                             language='js'
                             filename="React Js"
                         />
+                          <AdBanner />
                         <CodeBlock
                             code={pythonapifetch}
                             language='py'
@@ -66,6 +68,7 @@ except requests.exceptions.RequestException as e:
 
                         />
                     </div>
+                  
                     <div>
                         <h2 className='text-lg font-medium'>Response</h2>
                         <CodeBlock

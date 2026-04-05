@@ -1,10 +1,11 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -12,298 +13,246 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-   const Location = useLocation();
-
-   
-
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap');
 
-        .header-root {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          font-family: 'JetBrains Mono', monospace;
-          transition: all 0.3s ease;
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap');
+
+      .header-root{
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        z-index:1000;
+        font-family:'JetBrains Mono', monospace;
+        transition:all .3s ease;
+      }
+
+      .header-root.scrolled{
+        box-shadow:0 4px 32px rgba(0,230,118,0.08);
+      }
+
+      .header-inner{
+        display:flex;
+        align-items:center;
+        padding:0 40px;
+        height:62px;
+        background:rgba(8,11,16,0.97);
+        border-bottom:1px solid #1a2030;
+        backdrop-filter:blur(16px);
+        gap:24px;
+      }
+
+      .header-logo{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        flex:1;
+        text-decoration:none;
+      }
+
+      /* Desktop Nav */
+
+      .header-nav{
+        display:flex;
+        align-items:center;
+        gap:12px;
+      }
+
+      .nav-link{
+        color:#7a8a9a;
+        font-size:13px;
+        padding:6px 14px;
+        border-radius:6px;
+        text-decoration:none;
+        transition:.2s;
+      }
+
+      .nav-link:hover{
+        color:#c5d0de;
+        background:#0d1520;
+      }
+
+      .nav-link.active{
+        color:#00e676;
+        background:#0d2b1e;
+      }
+
+      /* Hamburger */
+
+      .hamburger{
+        display:none;
+        flex-direction:column;
+        gap:5px;
+        cursor:pointer;
+        background:none;
+        border:none;
+      }
+
+      .ham-line{
+        width:22px;
+        height:2px;
+        background:#7a8a9a;
+      }
+
+      /* Mobile Drawer */
+
+      .mobile-menu{
+        position:fixed;
+        top:0;
+        right:0;
+        height:100vh;
+        width:260px;
+        background:rgba(8,11,16,0.99);
+        border-left:1px solid #1e2a3a;
+        padding:80px 20px 20px;
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        z-index:999;
+
+        transform:translateX(100%);
+        transition:transform .3s ease;
+      }
+
+      .mobile-menu.open{
+        transform:translateX(0);
+      }
+
+      .mobile-nav-link{
+        color:#7a8a9a;
+        font-size:13px;
+        padding:10px 14px;
+        border-radius:6px;
+        border:1px solid transparent;
+        background:transparent;
+        text-align:left;
+        transition:.2s;
+      }
+
+      .mobile-nav-link:hover{
+        color:#00e676;
+        background:#0d2b1e;
+      }
+
+      /* Responsive */
+
+      @media (max-width:768px){
+
+        .header-nav{
+          display:none;
         }
 
-        .header-root.scrolled {
-          box-shadow: 0 4px 32px rgba(0, 230, 118, 0.08);
+        .hamburger{
+          display:flex;
         }
 
-        .header-inner {
-          display: flex;
-          align-items: center;
-          padding: 0 40px;
-          height: 62px;
-          background: rgba(8, 11, 16, 0.97);
-          border-bottom: 1px solid #1a2030;
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          gap: 24px;
-          transition: background 0.3s ease;
+        .header-inner{
+          padding:0 20px;
         }
 
-        .header-root.scrolled .header-inner {
-          background: rgba(6, 8, 12, 0.99);
-          border-bottom-color: #00e67622;
-        }
+      }
 
-        .header-logo {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          flex: 1;
-          text-decoration: none;
-        }
-
-        .logo-icon {
-          font-size: 22px;
-          color: #00e676;
-          line-height: 1;
-        }
-
-        .logo-text {
-          font-size: 18px;
-          font-weight: 800;
-          color: #00e676;
-          letter-spacing: 0.04em;
-        }
-
-        .logo-badge {
-          background: #0d2b1e;
-          color: #00e676;
-          font-size: 10px;
-          padding: 2px 8px;
-          border-radius: 4px;
-          border: 1px solid #00e67644;
-          letter-spacing: 0.08em;
-        }
-
-        .header-divider {
-          width: 1px;
-          height: 22px;
-          background: #1e2a3a;
-        }
-
-        .header-status {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 11px;
-          color: #4a5a6a;
-          letter-spacing: 0.06em;
-        }
-
-        .status-dot {
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: #00e676;
-          box-shadow: 0 0 6px #00e676;
-          animation: pulse-dot 2s infinite;
-        }
-
-        @keyframes pulse-dot {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-
-        .header-nav {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-        }
-
-        .nav-link {
-          color: #7a8a9a;
-          font-size: 12px;
-          padding: 6px 14px;
-          border-radius: 6px;
-          cursor: pointer;
-          letter-spacing: 0.05em;
-          text-decoration: none;
-          border: 1px solid transparent;
-          transition: all 0.2s;
-          background: transparent;
-          font-family: inherit;
-        }
-
-        .nav-link:hover {
-          color: #c5d0de;
-          background: #0d1520;
-          border-color: #1e2a3a;
-        }
-
-        .nav-link.active {
-          color: #00e676;
-          background: #0d2b1e;
-          border-color: #00e67633;
-        }
-
-        .header-actions {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .btn-secondary {
-          background: transparent;
-          border: 1px solid #1e2a3a;
-          color: #7a8a9a;
-          font-size: 12px;
-          padding: 7px 16px;
-          border-radius: 6px;
-          cursor: pointer;
-          font-family: inherit;
-          letter-spacing: 0.05em;
-          transition: all 0.2s;
-        }
-
-        .btn-secondary:hover {
-          border-color: #00e67644;
-          color: #c5d0de;
-        }
-
-        .btn-primary {
-          background: #00e676;
-          color: #080b10;
-          border: none;
-          font-size: 12px;
-          padding: 8px 20px;
-          border-radius: 6px;
-          cursor: pointer;
-          font-family: inherit;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          transition: all 0.2s;
-          box-shadow: 0 0 16px #00e67633;
-        }
-
-        .btn-primary:hover {
-          background: #00ff88;
-          box-shadow: 0 0 24px #00e67666;
-        }
-
-        /* Mobile hamburger */
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-          padding: 4px;
-          background: none;
-          border: none;
-        }
-
-        .ham-line {
-          width: 22px;
-          height: 2px;
-          background: #7a8a9a;
-          border-radius: 2px;
-          transition: all 0.2s;
-        }
-
-        /* Mobile drawer */
-        .mobile-menu {
-          position: fixed;
-          top: 62px;
-          left: 0;
-          right: 0;
-          background: rgba(8, 11, 16, 0.99);
-          border-bottom: 1px solid #1e2a3a;
-          padding: 16px 24px;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          z-index: 999;
-          transform: translateY(-110%);
-          transition: transform 0.3s ease;
-          display: none;
-        }
-
-        .mobile-menu.open {
-          transform: translateY(0);
-        }
-
-        .mobile-nav-link {
-          color: #7a8a9a;
-          font-size: 13px;
-          padding: 10px 14px;
-          border-radius: 6px;
-          cursor: pointer;
-          letter-spacing: 0.05em;
-          border: 1px solid transparent;
-          font-family: 'JetBrains Mono', monospace;
-          background: transparent;
-          text-align: left;
-          transition: all 0.2s;
-        }
-
-        .mobile-nav-link:hover {
-          color: #00e676;
-          background: #0d2b1e;
-          border-color: #00e67633;
-        }
-
-        @media (max-width: 768px) {
-          .header-nav, .header-actions, .header-divider, .header-status { display: none; }
-          .hamburger { display: flex; }
-          .header-inner { padding: 0 20px; }
-        }
       `}</style>
 
-      <header className={`header-root  ${scrolled ? " scrolled" : ""}`}>
+      <header className={`header-root ${scrolled ? "scrolled" : ""}`}>
         <div className="header-inner">
+
           {/* Logo */}
-          <a className="header-logo" href="#">
-            <span className="text-primary-500">⬡</span>
-            <span className="text-primary-500"><a href="/home">Test Mode</a></span>
-          </a>
+          <Link to="/home" className="header-logo">
+            <span style={{color:"#00e676"}}>⬡</span>
+            <span style={{color:"#00e676"}}>Test Mode</span>
+          </Link>
 
-        
+          {/* Desktop Nav */}
+          <nav className="header-nav">
 
-
-          {/* Nav Links */}
-          <nav className="header-nav space-x-5">
             {[
-              { label: "Devloper Test" ,link:"/" , active:(Location.pathname === "/")},
-              { label: "GST Information" ,link:"/GST-Information" , active:(Location.pathname === "/GST-Information")},
-              // { label: "Validation Function" , link:"/validation" }, 
-              // { label: "Status" },
-              // { label: "SDKs" },
-            ].map(({ label, active , link }) => (
-              <Link key={label} className={` text-[13px] transition-all ease-linear duration-200 ${active ? "p-2 bg-primary-500 rounded px-3 text-base" : "text-primary-50/50"} `} to={link}>
+              {
+                label:"Developer Test",
+                link:"/",
+                active:location.pathname === "/"
+              },
+              {
+                label:"GST Information",
+                link:"/GST-Information",
+                active:location.pathname === "/GST-Information"
+              }
+            ].map(({label,link,active}) => (
+
+              <Link
+                key={label}
+                to={link}
+                className={`nav-link ${active ? "active":""}`}
+              >
                 {label}
               </Link>
+
             ))}
+
           </nav>
 
-          {/* Actions */}
-          {/* <div className="header-actions">
-            <button className="btn-secondary">Sign In</button>
-            <button className="text-green-600">Get API Key</button>
-          </div> */}
-
           {/* Hamburger */}
-          <button className="hamburger" onClick={() => setMenuOpen(o => !o)}>
-            <span className="ham-line" />
-            <span className="ham-line" />
-            <span className="ham-line" />
+          <button
+            className="hamburger"
+            onClick={()=>setMenuOpen(!menuOpen)}
+          >
+            <span className="ham-line"/>
+            <span className="ham-line"/>
+            <span className="ham-line"/>
           </button>
+
         </div>
 
         {/* Mobile Drawer */}
-        <div className={` sm:hidden mobile-menu ${menuOpen ? " open" : ""}`}>
-          {["Playground", "Docs", "Changelog", "Status", "SDKs", "Sign In"].map(l => (
-            <button key={l} className="mobile-nav-link">{l}</button>
+        <div className={`mobile-menu ${menuOpen ? "open":""}`}>
+
+          {[
+            {name:"Developer Test",link:"/"},
+            {name:"GST Information",link:"/GST-Information"},
+            {name:"Docs",link:"/documentation/GET-Method"},
+            {name:"Privacy",link:"/privacy"},
+            {name:"Contact Us",link:"/contact"},
+            {name:"About Us",link:"/About"},
+            {name:"Terms & Conditions",link:"/termsandcondition"}
+          ].map((item)=>(
+            
+            item.link ?
+
+            <Link
+              key={item.name}
+              to={item.link}
+              className="mobile-nav-link"
+              onClick={()=>setMenuOpen(false)}
+            >
+              {item.name}
+            </Link>
+
+            :
+
+            <button
+              key={item.name}
+              className="mobile-nav-link"
+            >
+              {item.name}
+            </button>
+
           ))}
-          <button className=" text-green-600" style={{ marginTop: 8 }}>Get API Key</button>
+
+          {/* <button
+            style={{
+              marginTop:10,
+              color:"#00e676",
+              background:"transparent",
+              border:"none"
+            }}
+          >
+            Get API Key
+          </button> */}
+
         </div>
+
       </header>
     </>
   );

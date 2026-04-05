@@ -14,6 +14,11 @@ import DeveloperTestData from './page/DeveloperTestData';
 import GST from './page/GST';
 import Documentation from './page/Documentation';
 import GET from './componets/GET';
+import FakeDataGen from './page/Fakedatagen';
+import TermsAndConditions from './page/Termsandconditions';
+import PostDoc from './componets/PostDoc';
+import PutDoc from './componets/PutDoc';
+import DeleteDoc from './componets/DeleteDoc';
 
 
 
@@ -29,6 +34,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path='/' element={<DeveloperTestData />} />
           <Route path='/privacy' element={<Privacy />} />
+          <Route path="/user-identity" element={<FakeDataGen />} />
+          <Route path='/termsandcondition' element={<TermsAndConditions />} />
           {/* <Route path='/validation' element={<ValidationTest/>} /> */}
           <Route path='/GST-Information' element={<GST />} />
           <Route path='/About' element={<About />} />
@@ -38,6 +45,9 @@ function App() {
 
             <Route path='home' element={<Home />} />
             <Route path="GET-Method" element={<GET />} />
+            <Route path='POST-Method' element={<PostDoc/>} />
+            <Route path='PUT-Method' element={<PutDoc/>} />
+            <Route path='DELETE-Method' element={<DeleteDoc/>} />
           </Route>
         </Routes>
         <Footer />

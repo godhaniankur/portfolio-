@@ -3,12 +3,14 @@
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   margin: 1rem 0;   
+  
 }
 
 .cb-header {
   display: flex;
   align-items: center;
   gap: 6px;
+  margin: 0;
   padding: 10px 14px;
   background: #1d1f21;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -44,4 +46,17 @@
 .cb-copy:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
+}
+
+.cb-root pre {
+  max-height: 400px;   /* set your limit */
+  overflow-y: auto;    /* enable vertical scroll */
+  overflow-x: auto;    /* horizontal scroll for long lines */
+  scrollbar-width: none;
+  margin: 0;
+}
+
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
 }

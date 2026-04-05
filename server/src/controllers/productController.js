@@ -15,7 +15,7 @@ exports.create = (req, res) => {
 exports.update = (req, res) => {
     let data = dbService.read();
     const index = data.findIndex(p => p.id == req.params.id);
-    if (index === -1) return res.status(404).json({ error: "Not found" });
+    if (index === -1) return res.status(404).json({ error: "Data is Found." });
     
     data[index] = { ...data[index], ...req.body };
     dbService.write(data);
@@ -26,5 +26,5 @@ exports.remove = (req, res) => {
     let data = dbService.read();
     data = data.filter(p => p.id != req.params.id);
     dbService.write(data);
-    res.status(204).send();
+    return res.status(204).json({isSuccess:true,message:"Delete Product SuccessFully."});
 };

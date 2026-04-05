@@ -3,21 +3,21 @@ export const sidebarapimethod = [
      {
          id:1,
          name:"GET",
-         pageurl:"",
+         pageurl:"/documentation/GET-Method",
      },
      {
          id:2,
          name:"POST",
-         pageurl:"",
+         pageurl:"/documentation/POST-Method",
      },
      {
          id:3,
          name:"PUT",
-         pageurl:"",
+         pageurl:"/documentation/PUT-Method",
      },
      {
          id:4,
          name:"DELETE",
-         pageurl:"",
+         pageurl:"/documentation/DELETE-Method",
      }
 ]

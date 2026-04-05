@@ -223,6 +223,7 @@ function AddressPage({ copied, onCopy }) {
               </div>
             );
           })}
+           <AdBanner />
         </div>
       ) : (
         <TableShell headers={["#", "Address", "City", "State", "ZIP", "Code", "Actions"]}>
@@ -298,6 +299,7 @@ function GSTINPage({ copied, onCopy }) {
               </div>
             );
           })}
+           <AdBanner />
         </div>
       ) : (
         <TableShell headers={["#", "GSTIN", "Company", "PAN", "Type", "State", "City", "Actions"]}>
@@ -378,6 +380,7 @@ function EmailPage({ copied, onCopy }) {
               </div>
             );
           })}
+          <AdBanner />
         </div>
       ) : (
         <TableShell headers={["#", "Email", "Domain", "Type", "State", "City", "Actions"]}>
@@ -458,6 +461,7 @@ function PhonePage({ copied, onCopy }) {
               </div>
             );
           })}
+          <AdBanner />
         </div>
       ) : (
         <TableShell headers={["#", "Number", "Name", "Carrier", "WhatsApp", "State", "City", "Actions"]}>
@@ -539,6 +543,7 @@ function PANPage({ copied, onCopy }) {
               </div>
             );
           })}
+          <AdBanner />
         </div>
       ) : (
         <TableShell headers={["#", "PAN", "Name", "Type", "State", "City", "Issued", "Actions"]}>
@@ -707,15 +712,14 @@ export default function DeveloperTestData() {
         </div>
 
         {/* PAGE CONTENT */}
-        <div className=" mt-10">
+       
 
         {activeTab === "address" && <AddressPage copied={copied} onCopy={onCopy} />}
         {activeTab === "gstin" && <GSTINPage copied={copied} onCopy={onCopy} />}
         {activeTab === "email" && <EmailPage copied={copied} onCopy={onCopy} />}
         {activeTab === "phone" && <PhonePage copied={copied} onCopy={onCopy} />}
         {activeTab === "pan" && <PANPage copied={copied} onCopy={onCopy} />}
-        </div>
-        <AdBanner />
+      
       </div>
     </>
   );

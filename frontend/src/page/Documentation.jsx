@@ -4,13 +4,12 @@ import Sidebar from '../componets/Sidebar'
 
 const Documentation = () => {
   return (
-      <div className='flex h-[calc(100vh-60px)]'>
-           <div className='w-[255px] bg-surface-alt z-50'>
+      <div className='flex h-[calc(100vh-100px)]'>
+           
                 <Sidebar />
-           </div>
-           <div className='w-full py-2'>
+           
+           <div className='flex-1 h-full lg:pl-[255px] w-full overflow-y-auto bg-white border-l border-gray-200'>
                <Outlet />
-               
            </div>
       </div>
   )
