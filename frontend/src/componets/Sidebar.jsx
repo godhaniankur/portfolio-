@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { PiSquaresFourLight, PiListBold, PiXBold } from "react-icons/pi"; // Added List and X icons
-import { sidebarapimethod } from '../constant/web_asseets';
+import { sidebarapimethod, Validationfiled } from '../constant/web_asseets';
 import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -51,7 +51,7 @@ const Sidebar = () => {
           </section> */}
 
           <section className='text-xs p-3 text-primary-50/30'>
-            <div className='mb-2 text-secondary-400 font-semibold'>API METHOD</div>
+            <div className='mb-2 text-secondary-400 text-lg font-semibold'>API METHOD</div>
             <div className='p-2 space-y-2'>
               {sidebarapimethod.map((value)=>(
                 <Link  key={value.id} to={value.pageurl}>
@@ -60,6 +60,18 @@ const Sidebar = () => {
                     </div>
                 </Link>
               ))}
+            </div>
+            <div>
+                <div className='mb-2 text-lg text-secondary-400 font-semibold'>React Document</div>
+                <div className='p-2 space-y-2'>
+                {Validationfiled.map((value)=>(
+                    <Link  key={value.id} to={value.link}>
+                        <div className={`text-white hover:bg-primary-500/10 p-2 rounded transition-all cursor-pointer ${locationpath.pathname === value.link ? "bg-primary-500/10" : ""} `}>
+                        <span className='text-sm'>{value.name}</span>
+                        </div>
+                    </Link>
+                ))}
+                </div>
             </div>
           </section>
         </div>

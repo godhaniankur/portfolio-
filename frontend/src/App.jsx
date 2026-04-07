@@ -1,7 +1,4 @@
-
 import './App.css';
-import Projectdetail from './componets/Projectdetail';
-
 import NotFound from './samepage/NotFound';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Privacy } from './page/Privacy';
@@ -19,6 +16,7 @@ import TermsAndConditions from './page/Termsandconditions';
 import PostDoc from './componets/PostDoc';
 import PutDoc from './componets/PutDoc';
 import DeleteDoc from './componets/DeleteDoc';
+import NumberValidationdoc from './componets/Validation/NumberValidationdoc';
 
 
 
@@ -48,6 +46,7 @@ function App() {
             <Route path='POST-Method' element={<PostDoc/>} />
             <Route path='PUT-Method' element={<PutDoc/>} />
             <Route path='DELETE-Method' element={<DeleteDoc/>} />
+            <Route path='useContext-hook' element={<NumberValidationdoc/>} />
           </Route>
         </Routes>
         <Footer />
