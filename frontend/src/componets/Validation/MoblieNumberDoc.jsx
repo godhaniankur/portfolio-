@@ -17,7 +17,6 @@ const MoblieNumberDoc = () => {
              </button>
              <AdBanner />
 
-             <StudentForm />
         </div>
     )
 }
