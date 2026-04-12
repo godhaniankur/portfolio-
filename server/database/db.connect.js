@@ -1,28 +1,26 @@
 const { MongoClient } = require("mongodb");
-const dns = require("dns");
 require("dotenv").config();
-
-dns.setDefaultResultOrder("ipv4first");
 
 let db;
 
 const connectDB = async () => {
   try {
+    // 1. Initialize the client
     const client = new MongoClient(process.env.MONGO_URI);
-
+    
+    // 2. Connect to the server
     await client.connect();
 
-    db = client.db();
+    // 3. Select the specific database
+    db = client.db("testmode");
 
-    console.log("✅ MongoDB Connected Successfully");
+    // 4. Log success AFTER connection is solid
+    console.log(`✅ MongoDB Connected Successfully to: ${db.databaseName}`);
 
   } catch (error) {
-    console.error("❌ MongoDB Connection Failed");
-    console.error(error);
-    process.exit(1)
+    console.error("❌ MongoDB Connection Failed:", error);
+    process.exit(1);
   }
 };
 
-const getDB = () => db;
-
-module.exports = { connectDB, getDB };
+module.exports = { connectDB };

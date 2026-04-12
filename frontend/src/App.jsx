@@ -17,6 +17,9 @@ import PostDoc from './componets/PostDoc';
 import PutDoc from './componets/PutDoc';
 import DeleteDoc from './componets/DeleteDoc';
 import NumberValidationdoc from './componets/Validation/NumberValidationdoc';
+import MoblieNumberDoc from './componets/Validation/MoblieNumberDoc';
+import OfflineArchitectureDoc from './componets/OfflineArchitectureDoc';
+import StudentForm from './Test/StudentForm';
 
 
 
@@ -32,6 +35,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path='/' element={<DeveloperTestData />} />
           <Route path='/privacy' element={<Privacy />} />
+            <Route path='/test' element={<StudentForm/>} />
+
           <Route path="/user-identity" element={<FakeDataGen />} />
           <Route path='/termsandcondition' element={<TermsAndConditions />} />
           {/* <Route path='/validation' element={<ValidationTest/>} /> */}
@@ -47,6 +52,9 @@ function App() {
             <Route path='PUT-Method' element={<PutDoc/>} />
             <Route path='DELETE-Method' element={<DeleteDoc/>} />
             <Route path='useContext-hook' element={<NumberValidationdoc/>} />
+
+            <Route path='validate/moblie-no' element={<MoblieNumberDoc/>} />
+            <Route path='offline-Architecture' element={<OfflineArchitectureDoc/>} />
           </Route>
         </Routes>
         <Footer />

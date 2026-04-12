@@ -24,6 +24,7 @@ import "prismjs/components/prism-python";
 import "prismjs/components/prism-bash";
 import "prismjs/components/prism-css";
 import { ErrorProvider } from './Test/ErrorProvider.jsx'
+import VideoProvider from './ContextProvider/VideoProvider.jsx'
 
 
 // 5. Make Prism available globally (optional but handy)
@@ -32,9 +33,12 @@ window.Prism = Prism;
 createRoot(document.getElementById('root')).render(
 
   <BrowserRouter>
+
     <ErrorProvider>
+      <VideoProvider>
 
       <App />
+      </VideoProvider>
     </ErrorProvider>
 
 

@@ -589,6 +589,7 @@ function CategoryShell({ search, setSearch, filterState, setFilterState, states,
           />
         </div>
         <select
+          aria-label="State"
           value={filterState}
           onChange={e => setFilterState(e.target.value)}
           className=" text-primary-500 border  text-xs font-mono px-3 py-1.5 rounded focus:outline-none transition-all"

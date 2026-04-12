@@ -34,3 +34,7 @@
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 }
+
+*{
+  box-sizing: border-box;
+}

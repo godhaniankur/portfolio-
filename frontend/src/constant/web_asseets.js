@@ -27,5 +27,16 @@ export const Validationfiled = [
         id:1,
         name:"React useContext hook",
         link:"/documentation/useContext-hook"
+    },
+      {
+        id:2,
+        name:"Moblie Number",
+        link:"/documentation/validate/moblie-no"
+    },
+    {
+        id:3,
+        name:"Offline-First Architecture",
+        link:"/documentation/offline-Architecture"
     }
 ] 
+
