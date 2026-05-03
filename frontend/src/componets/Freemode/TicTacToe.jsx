@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet-async'
 
 
 const TicTacToe = ({ mode, roomId }) => {
-    const socket = io("http://localhost:3000");
-
+   const socket = io("https://test-mode.com");
+   
     const [board, setBoard] = useState(Array(9).fill(null));
     const [isXNext, setIsXNext] = useState(true);
     const [mySymbol, setMySymbol] = useState(null);
