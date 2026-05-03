@@ -47,7 +47,7 @@ const MainMenu = () => {
         </button>
 
         {/* Option 3: Join via Code */}
-        {/* <form onSubmit={joinExistingRoom} className="flex flex-col gap-2">
+        <form onSubmit={joinExistingRoom} className="flex flex-col gap-2">
           <input 
             type="text" 
             placeholder="ENTER 6-CHAR CODE"
@@ -62,13 +62,13 @@ const MainMenu = () => {
           >
             JOIN ROOM
           </button>
-        </form> */}
+        </form>
       </div>
 
       {/* <p className="mt-12 text-[10px] opacity-40 uppercase tracking-[0.3em]">
         Developer Testing Mode Active
       </p> */}
-      
+
     </div>
   );
 };
