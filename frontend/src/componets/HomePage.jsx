@@ -148,16 +148,13 @@ const data = await res.json();`,
         <title>Free Fake API for Testing | Mock REST API with Sample JSON Data</title>
         <meta name="description" content="Access a free Fake API for testing and development. Get mock REST API endpoints with sample JSON data for frontend, mobile, and backend development. Perfect for developers building and testing applications." />
         <meta name="keywords" content="fake api for testing, free fake api,mock api for developers, dummy api for testing, test api endpoint, free mock api service, sample rest api, testing api with fake data, json fake api, rest api playground, api testing tool, developer mock api, free fake api for frontend testing, free dummy api for react developers, api with sample data for developers, testing api endpoints online, fake product api for ecommerce testing" />
-        <link rel="canonical" href="https://test-mode.com/home" />
+        <link rel="canonical" href="https://test-mode.com" />
       </Helmet>
       <div
         className="min-h-screen bg-[#0b0f14] text-slate-100"
-        style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}
       >
         {/* Google Font */}
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap');
-          .sans { font-family: 'Inter', sans-serif; }
           .glow-cyan { text-shadow: 0 0 18px rgba(34,211,238,0.5); }
           .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
           .card-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }

@@ -62,7 +62,7 @@ export default function Header() {
 
       .nav-link{
         color:#7a8a9a;
-        font-size:13px;
+        font-size:14px;
         padding:6px 14px;
         border-radius:6px;
         text-decoration:none;
@@ -70,13 +70,13 @@ export default function Header() {
       }
 
       .nav-link:hover{
-        color:#c5d0de;
-        background:#0d1520;
+        color:rgb(6, 182, 212);
+       
       }
 
       .nav-link.active{
-        color:#00e676;
-        background:#0d2b1e;
+        color:rgb(6, 182, 212);
+        font-weight:500
       }
 
       /* Hamburger */
@@ -160,7 +160,7 @@ export default function Header() {
         <div className="header-inner">
 
           {/* Logo */}
-          <Link to="/home" className="header-logo text-primary-500">
+          <Link to="/" className="header-logo text-primary-500">
             <span >⬡</span>
             <span >Test Mode</span>
           </Link>
@@ -168,11 +168,23 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="header-nav">
 
+             <Link
+                to="/freemode"
+                className={`nav-link  tracking-wider text-[16px] border-r rounded-none`}
+              >
+                 Free Time
+              </Link>
+
             {[
               {
+                label:"Document",
+                link:"/documentation/GET-Method",
+                active:location.pathname === "/documentation/GET-Method"
+              },
+              {
                 label:"Developer Test",
-                link:"/",
-                active:location.pathname === "/"
+                link:"/mockdata",
+                active:location.pathname === "/mockdata"
               },
               {
                 label:"GST Information",
@@ -184,7 +196,7 @@ export default function Header() {
               <Link
                 key={label}
                 to={link}
-                className={`nav-link ${active ? "active":""}`}
+                className={`nav-link ${active ? "active":""} tracking-wider text-[16px]`}
               >
                 {label}
               </Link>
@@ -240,16 +252,6 @@ export default function Header() {
 
           ))}
 
-          {/* <button
-            style={{
-              marginTop:10,
-              color:"#00e676",
-              background:"transparent",
-              border:"none"
-            }}
-          >
-            Get API Key
-          </button> */}
 
         </div>
 

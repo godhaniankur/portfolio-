@@ -1,6 +1,11 @@
 import React from 'react'
 import CodeBlock from './CodeBlock';
 import AdBanner from '../ads/AdBanner';
+import { titleclass } from '../constant/theme_asseets';
+import { MdAutoDelete } from "react-icons/md";
+import { MdChromeReaderMode } from "react-icons/md";
+import { RiSendPlaneFill } from "react-icons/ri";
+
 
 const DeleteDoc = () => {
     const jsCode = `https://test-mode.com/api/products/1001`;
@@ -35,7 +40,7 @@ const DeleteDoc = () => {
     return (
         <div >
             <section className=' lg:w-8/12 w-11/12  mx-auto'>
-                <h1 className='mt-2 font-medium'>DELETE METHOD</h1>
+                <h1 className={`${titleclass} flex items-center gap-2`}><MdAutoDelete className='w-9 h-9'/>Delete Method</h1>
                 <div className=''>
                     <CodeBlock
                         code={jsCode}
@@ -43,7 +48,7 @@ const DeleteDoc = () => {
                         filename="api-endpoint"
                     />
                     <div>
-                        <h2 className='text-lg font-medium'>How to use</h2>
+                        <h2 className={`${titleclass} flex items-center gap-2`}><MdChromeReaderMode className='w-9 h-9'/> How to use</h2>
                         <CodeBlock
                             code={howtofetchjs}
                             language='js'
@@ -53,7 +58,7 @@ const DeleteDoc = () => {
                     </div>
                   
                     <div>
-                        <h2 className='text-lg font-medium'>Response</h2>
+                        <h2 className={`${titleclass} flex items-center gap-2`}><RiSendPlaneFill  className='w-9 h-9'/> Response</h2>
                         <CodeBlock
                             code={Productresponse}
                             language='js'

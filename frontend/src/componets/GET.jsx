@@ -1,6 +1,11 @@
 import React from 'react'
 import CodeBlock from './CodeBlock';
 import AdBanner from '../ads/AdBanner';
+import { titleclass } from '../constant/theme_asseets';
+import { MdAutoDelete } from "react-icons/md";
+import { MdChromeReaderMode } from "react-icons/md";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { VscRepoFetch } from "react-icons/vsc";
 
 const GET = () => {
     const jsCode = `https://test-mode.com/api/products`;
@@ -46,7 +51,7 @@ except requests.exceptions.RequestException as e:
     return (
         <div >
             <section className=' lg:w-8/12 w-11/12  mx-auto'>
-                <h1 className='mt-2 font-medium'>GET METHOD</h1>
+                <h1 className={`${titleclass} flex items-center gap-2`}><VscRepoFetch className='w-9 h-9'/>GET METHOD</h1>
                 <div className=''>
                     <CodeBlock
                         code={jsCode}
@@ -54,7 +59,7 @@ except requests.exceptions.RequestException as e:
                         filename="api-endpoint"
                     />
                     <div>
-                        <h2 className='text-lg font-medium'>How to use</h2>
+                        <h2 className={`${titleclass} flex items-center gap-2`}><MdChromeReaderMode className='w-9 h-9'/>How to use</h2>
                         <CodeBlock
                             code={howtofetchjs}
                             language='js'
@@ -70,7 +75,7 @@ except requests.exceptions.RequestException as e:
                     </div>
                   
                     <div>
-                        <h2 className='text-lg font-medium'>Response</h2>
+                        <h2 className={`${titleclass} flex items-center gap-2`}><RiSendPlaneFill className='w-9 h-9'/>Response</h2>
                         <CodeBlock
                             code={Productresponse}
                             language='js'

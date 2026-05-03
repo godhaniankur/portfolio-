@@ -1,5 +1,6 @@
 import AdBanner from "../../ads/AdBanner"
 import { useContextImage } from "../../constant/imge_assets"
+import { titleclass } from "../../constant/theme_asseets"
 import { Test } from "../../Test/TestComponent"
 // import { TestComponent } from "../../Test/TestComponent"
 import CodeBlock from "../CodeBlock"
@@ -78,7 +79,7 @@ export function Test() {
     return (
         <div className="lg:w-8/12 w-11/12 mx-auto my-2.5">
             <div className=" space-y-2">
-                <h1 className="text-2xl font-semibold text-secondary-500">How to use useContext in react js ?</h1>
+                <h1 className={`${titleclass}`}>How to use useContext in react js ?</h1>
                 <p>useContext is a hook in React that allows components to access and share data from a Context directly without passing props through every component level.</p>
 
                 <div className="max-h-[500px] rounded-2xl overflow-hidden">
@@ -86,13 +87,13 @@ export function Test() {
                 </div>
 
                 <div>
-                    <h2 className="text-lg font-semibold text-secondary-500">Syntax</h2>
+                    <h2 className={`${titleclass}`}>Syntax</h2>
                     <CodeBlock
                         language="js"
                         code={Syntax}
                         filename="Syntax"
                     />
-                    <span className="text-lg font-semibold text-secondary-500">Short Flow</span>
+                    <span className={`${titleclass}`}>Short Flow</span>
                     <CodeBlock
                         language="js"
                         code={`createContext() → Provider → useContext()`}
@@ -102,7 +103,7 @@ export function Test() {
 
             </div>
             <div className="space-y-3">
-                <span className="text-2xl font-semibold text-secondary-500">Mini Project - React Global Error Handler using Context API</span>
+                <span className={`${titleclass}`}>Mini Project - React Global Error Handler using Context API</span>
                 <p>This mini project showcases how to build a global error handling system in React using createContext and useContext. The application allows any component to trigger an error popup modal that appears globally with a backdrop and dismiss button.</p>
 
                 <div>
@@ -116,7 +117,7 @@ export function Test() {
                      <CodeBlock language="js" filename="Test.jsx" code={usecontextapi} />
                 </div>
                 <div className="flex flex-col gap-y-3">
-                     <strong className="text-lg">Preview</strong>
+                     <strong className={`${titleclass}`}>Preview</strong>
                      <AdBanner />
                      <Test />
                 </div>

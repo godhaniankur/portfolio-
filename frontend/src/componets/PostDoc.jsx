@@ -1,5 +1,10 @@
 import CodeBlock from './CodeBlock';
 import AdBanner from '../ads/AdBanner';
+import { titleclass } from '../constant/theme_asseets';
+
+import { MdChromeReaderMode } from "react-icons/md";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { BsPostcard } from "react-icons/bs";
 
 const PostDoc = () => {
     const jsCode = `https://test-mode.com/api/products`;
@@ -150,7 +155,7 @@ except requests.exceptions.RequestException as e:
     return (
         <div >
             <section className=' lg:w-8/12 w-11/12  mx-auto'>
-                <h1 className='mt-2 font-medium'>POST METHOD</h1>
+                <h1 className={`${titleclass} flex items-center gap-2`}><BsPostcard className='w-9 h-9'/>Post Method</h1>
                 <div className=''>
                     <CodeBlock
                         code={jsCode}
@@ -159,7 +164,7 @@ except requests.exceptions.RequestException as e:
                     />
                      <AdBanner />
                     <div>
-                        <h2 className='text-lg font-medium'>How to use</h2>
+                        <h2 className='text-lg font-medium'className={`${titleclass} flex items-center gap-2`}><MdChromeReaderMode className='w-9 h-9'/>How to use</h2>
                         <p className='px-1.5'>You can copy the code below and paste it directly into your code editor.
 Update it according to your project requirements.</p>
                         <CodeBlock
@@ -171,7 +176,7 @@ Update it according to your project requirements.</p>
                     </div>
                    
                     <div>
-                        <h2 className='text-lg font-medium'>Response</h2>
+                        <h2 className={`${titleclass} flex items-center gap-2`}><RiSendPlaneFill className='w-9 h-9'/>Response</h2>
                         <CodeBlock
                             code={Productresponse}
                             language='js'

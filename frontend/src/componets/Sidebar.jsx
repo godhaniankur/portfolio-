@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { PiSquaresFourLight, PiListBold, PiXBold } from "react-icons/pi"; // Added List and X icons
 import { sidebarapimethod, Validationfiled } from '../constant/web_asseets';
 import { Link, useLocation } from 'react-router-dom';
+import { AiFillApi } from "react-icons/ai";
+import { BsFiletypeDoc } from "react-icons/bs";
 
 const Sidebar = () => {
   // 1. State to manage visibility on mobile
@@ -29,7 +31,7 @@ const Sidebar = () => {
 
       {/* 4. The Sidebar Container */}
       <div className={`
-        fixed h-full w-[255px] bg-surface-alt z-[60] transition-transform duration-300 ease-in-out
+        fixed h-full w-[255px] bg-base z-[60] transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
         lg:translate-x-0
       `}>
@@ -50,24 +52,25 @@ const Sidebar = () => {
             </div> 
           </section> */}
 
-          <section className='text-xs p-3 text-primary-50/30'>
-            <div className='mb-2 text-secondary-400 text-lg font-semibold'>API METHOD</div>
-            <div className='p-2 space-y-2'>
+          <section className=' p-3 '>
+            <div className='mb-2  text-lg text-primary-500 font-medium tracking-wider flex items-center gap-2'><AiFillApi className='w-5 h-5'/>Https Method</div>
+            <div className='flex flex-col gap-1'>
               {sidebarapimethod.map((value)=>(
                 <Link  key={value.id} to={value.pageurl}>
-                    <div className={`text-white hover:bg-primary-500/10 p-2 rounded transition-all cursor-pointer ${locationpath.pathname === value.pageurl ? "bg-primary-500/10" : ""} `}>
-                    <h1>{value.name}</h1>
+                    <div className={` hover:bg-primary-500 hover:text-black p-2 rounded transition-all cursor-pointer ${locationpath.pathname === value.pageurl ? "bg-primary-500 text-base font-medium" : "text-white"} `}>
+                    <h1 className=' tracking-wide text-[14px]'>{value.name}</h1>
                     </div>
                 </Link>
               ))}
             </div>
+            <hr className='text-white/80 my-2'/>
             <div>
-                <div className='mb-2 text-lg text-secondary-400 font-semibold'>React Document</div>
-                <div className='p-2 space-y-2'>
+                <div className='my-3 text-lg text-primary-500 font-medium tracking-wider flex gap-2 items-center'><BsFiletypeDoc className='w-5 h-5'/>React Document</div>
+                <div className='flex flex-col gap-1'>
                 {Validationfiled.map((value)=>(
                     <Link  key={value.id} to={value.link}>
-                        <div className={`text-white hover:bg-primary-500/10 p-2 rounded transition-all cursor-pointer ${locationpath.pathname === value.link ? "bg-primary-500/10" : ""} `}>
-                        <span className='text-sm'>{value.name}</span>
+                        <div className={` hover:bg-primary-500 hover:text-black p-2 rounded transition-all cursor-pointer ${locationpath.pathname === value.link ? "bg-primary-500 text-base font-medium" : "text-white"} `}>
+                        <span className='text-[14px] tracking-wide'>{value.name}</span>
                         </div>
                     </Link>
                 ))}

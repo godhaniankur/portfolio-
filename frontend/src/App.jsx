@@ -20,6 +20,10 @@ import NumberValidationdoc from './componets/Validation/NumberValidationdoc';
 import MoblieNumberDoc from './componets/Validation/MoblieNumberDoc';
 import OfflineArchitectureDoc from './componets/OfflineArchitectureDoc';
 import StudentForm from './Test/StudentForm';
+import Gamemode from './page/Gamemode';
+import TicTacToe from './componets/Freemode/TicTacToe';
+import FriendGameWrapper from './componets/Freemode/FriendGameWrapper';
+import MainMenu from './componets/Freemode/MainMenu';
 
 
 
@@ -32,10 +36,14 @@ function App() {
           <Header />
         </div>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path='/' element={<DeveloperTestData />} />
+          <Route path="/" element={<Home />} />
+          <Route path='/mockdata' element={<DeveloperTestData />} />
           <Route path='/privacy' element={<Privacy />} />
             <Route path='/test' element={<StudentForm/>} />
+
+            <Route path='/freemode' element={<MainMenu/>} />
+            <Route path="/play/computer" element={<TicTacToe mode="computer" />} />
+        <Route path="/play/friend/:roomId" element={<FriendGameWrapper />} />
 
           <Route path="/user-identity" element={<FakeDataGen />} />
           <Route path='/termsandcondition' element={<TermsAndConditions />} />

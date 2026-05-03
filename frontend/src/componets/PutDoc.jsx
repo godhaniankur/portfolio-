@@ -1,5 +1,10 @@
 import CodeBlock from './CodeBlock';
 import AdBanner from '../ads/AdBanner';
+import { titleclass } from '../constant/theme_asseets';
+import { RxUpdate } from "react-icons/rx";
+import { MdChromeReaderMode } from "react-icons/md";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { VscBracketError } from "react-icons/vsc";
 
 const PutDoc = () => {
     const jsCode = `https://test-mode.com/api/products/1775377768790`;
@@ -140,7 +145,7 @@ const PutDoc = () => {
     return (
         <div >
             <section className=' lg:w-8/12 w-11/12  mx-auto'>
-                <h1 className='mt-2 font-medium'>PUT METHOD</h1>
+                <h1 className={`${titleclass} flex items-center gap-2`}><RxUpdate className='w-9 h-9'/>Put Method</h1>
                 <div className=''>
                     <CodeBlock
                         code={jsCode}
@@ -149,7 +154,7 @@ const PutDoc = () => {
                     />
                     <AdBanner />
                     <div>
-                        <h3 className='text-lg font-medium'>How to use</h3>
+                        <h3 className={`${titleclass} flex items-center gap-2`}><MdChromeReaderMode className='w-9 h-9'/>How to use</h3>
                         <p className='px-1.5'>You can copy the code below and paste it directly into your code editor.
                             Update it according to your project requirements.</p>
                         <CodeBlock
@@ -161,7 +166,7 @@ const PutDoc = () => {
                     </div>
 
                     <div>
-                        <h4 className='text-lg font-medium'>Response</h4>
+                        <h4 className={`${titleclass} flex items-center gap-2`}><RiSendPlaneFill className='w-9 h-9'/>Response</h4>
                         <CodeBlock
                             code={Productresponse}
                             language='js'
@@ -170,7 +175,7 @@ const PutDoc = () => {
                     </div>
 
                     <div>
-                        <h5 className='text-lg font-medium'>Error</h5>
+                        <h5 className={`${titleclass} flex items-center gap-2 text-red-500`}><VscBracketError className='w-9 h-9'/>Error</h5>
                         <CodeBlock
                             code={errors}
                             language='js'

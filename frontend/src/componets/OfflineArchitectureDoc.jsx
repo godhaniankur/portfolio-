@@ -3,14 +3,18 @@ import { titleclass } from '../constant/theme_asseets'
 import CodeBlock from './CodeBlock'
 import { createDB, Exmplecode, saveOfflinedata } from '../constant/ReactDoc/offlineArchitecture'
 import AdBanner from '../ads/AdBanner'
+import { IoCloudOfflineSharp } from "react-icons/io5";
+import { MdChromeReaderMode } from "react-icons/md";
+import { GrDocumentStore } from "react-icons/gr";
+import { RiSendPlaneFill } from "react-icons/ri";
 
 const OfflineArchitectureDoc = () => {
   return (
     <div className='w-8/12 mx-auto py-5'>
-        <div className=' space-y-2.5'>
-             <h1 className={`${titleclass}`}>Offline-First Architecture with Background Sync</h1>
+        <div className='flex flex-col gap-3'>
+             <h1 className={`${titleclass} flex items-center gap-2`}><IoCloudOfflineSharp className='w-9 h-9'/> Offline-First Architecture with Background Sync</h1>
              <span>“Save data locally first, sync to server when internet is available.”</span>
-             <div className='my-2 px-5'>
+             <div className=' px-5'>
                  <span>Example :</span>
                 <ul className='px-5 space-y-1 mt-2'>
                     <li>WhatsApp : message sends later if no internet</li>
@@ -19,21 +23,21 @@ const OfflineArchitectureDoc = () => {
                 </ul>
              </div>
              <main>
-                  <span className={`${titleclass}`}>How to Use It (Step-by-Step)</span>
+                  <span className={`${titleclass} flex items-center gap-2`}><MdChromeReaderMode className='w-9 h-9'/> How to Use It (Step-by-Step)</span>
                   <CodeBlock 
                     code={createDB}
                     filename='dbPromise.js'
                     language='js'
                   />
                   <div>
-                      <span className={`${titleclass}`}>Save Data Locally</span>
+                      <span className={`${titleclass}  flex items-center gap-2`}><GrDocumentStore className='w-9 h-9'/>Save Data Locally</span>
                       <CodeBlock code={saveOfflinedata} filename="saveOffline.js" language='js'/>
                   </div>
 
                   <AdBanner />
 
                   <div>
-                       <span className={`${titleclass}`}>Submit Data in React JS (Online + Offline) 🔥 | IndexedDB with Complete Example Code</span>
+                       <span className={`${titleclass} flex items-start gap-2`}><RiSendPlaneFill  className='w-9 h-9'/>Submit Data in React JS (Online + Offline) 🔥 | IndexedDB with Complete Example Code</span>
                       <CodeBlock code={Exmplecode} filename="StudentForm.jsx" language='jsx'/>
 
                   </div>
